@@ -7,6 +7,7 @@ public class ClienteModel {
     private String CLI_CNPJ;
     private String CLI_INSCEST;
     private double CLI_LIMITECRED;
+    private String CLI_FISICA;
     
     private String CLI_COBR_LOGRADOURO;
     private String CLI_COBR_ENDERECO;
@@ -22,13 +23,14 @@ public class ClienteModel {
     public ClienteModel() {
     
     }
-    
-    public ClienteModel(int CLI_CODIGO, String CLI_NOME, String CLI_CNPJ, String CLI_INSCEST, double CLI_LIMITECRED, String CLI_COBR_LOGRADOURO, String CLI_COBR_ENDERECO, String CLI_COBR_NUMERRO, String CLI_COBR_BAIRRO, String CLI_COBR_CIDADE, String CLI_COBR_CEP, String CLI_COBR_UF, EnderecoModel END_MODEL, ContatoModel CON_MODEL) {
+
+    public ClienteModel(int CLI_CODIGO, String CLI_NOME, String CLI_CNPJ, String CLI_INSCEST, double CLI_LIMITECRED, String CLI_FISICA, String CLI_COBR_LOGRADOURO, String CLI_COBR_ENDERECO, String CLI_COBR_NUMERRO, String CLI_COBR_BAIRRO, String CLI_COBR_CIDADE, String CLI_COBR_CEP, String CLI_COBR_UF, EnderecoModel END_MODEL, ContatoModel CON_MODEL) {
         this.CLI_CODIGO = CLI_CODIGO;
         this.CLI_NOME = CLI_NOME;
         this.CLI_CNPJ = CLI_CNPJ;
         this.CLI_INSCEST = CLI_INSCEST;
         this.CLI_LIMITECRED = CLI_LIMITECRED;
+        this.CLI_FISICA = CLI_FISICA;
         this.CLI_COBR_LOGRADOURO = CLI_COBR_LOGRADOURO;
         this.CLI_COBR_ENDERECO = CLI_COBR_ENDERECO;
         this.CLI_COBR_NUMERRO = CLI_COBR_NUMERRO;
@@ -78,6 +80,14 @@ public class ClienteModel {
 
     public void setCLI_LIMITECRED(double CLI_LIMITECRED) {
         this.CLI_LIMITECRED = CLI_LIMITECRED;
+    }
+
+    public String getCLI_FISICA() {
+        return CLI_FISICA;
+    }
+
+    public void setCLI_FISICA(String CLI_FISICA) {
+        this.CLI_FISICA = CLI_FISICA;
     }
 
     public String getCLI_COBR_LOGRADOURO() {
@@ -150,5 +160,5 @@ public class ClienteModel {
 
     public void setCON_MODEL(ContatoModel CON_MODEL) {
         this.CON_MODEL = CON_MODEL;
-    }   
+    }
 }

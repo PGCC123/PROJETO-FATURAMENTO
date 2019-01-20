@@ -54,8 +54,8 @@ public class PesquisaFuncionarioView extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setModal(true);
         addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowClosed(java.awt.event.WindowEvent evt) {
-                formWindowClosed(evt);
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
             }
         });
 
@@ -146,7 +146,7 @@ public class PesquisaFuncionarioView extends javax.swing.JDialog {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblTITULO, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 720, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -180,11 +180,11 @@ public class PesquisaFuncionarioView extends javax.swing.JDialog {
                             .addComponent(btnLIMPAR)
                             .addComponent(btnCONSULTA, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(11, 11, 11)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        setSize(new java.awt.Dimension(790, 465));
+        setSize(new java.awt.Dimension(770, 473));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -214,7 +214,7 @@ public class PesquisaFuncionarioView extends javax.swing.JDialog {
 
     private void tblFUNCIONARIOMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblFUNCIONARIOMouseClicked
         if (evt.getClickCount() == 2) {
-            
+
             this.dispose();
             FuncionarioView funcionario = new FuncionarioView();
             funcionario.setVisible(true);
@@ -226,12 +226,13 @@ public class PesquisaFuncionarioView extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_tblFUNCIONARIOMouseClicked
 
-    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+
+        FuncionarioView funcionarioview = new FuncionarioView();
+        funcionarioview.setVisible(true);
+        this.dispose();
         
-         //FuncionarioView funcionarioview = new FuncionarioView();
-         //funcionarioview.setVisible(true);
-         //this.dispose();
-    }//GEN-LAST:event_formWindowClosed
+    }//GEN-LAST:event_formWindowClosing
 
     private String filtroConsulta() {
 

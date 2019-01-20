@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="2"/>
     <Property name="title" type="java.lang.String" value="Sistema - Cadastro de Clientes"/>
@@ -62,9 +62,7 @@
         <Container class="javax.swing.JPanel" name="pnlDADOS">
           <Properties>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
-                <EtchetBorder/>
-              </Border>
+              <Border info="null"/>
             </Property>
           </Properties>
           <Constraints>
@@ -81,31 +79,41 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lblCLI_CODIGO" alignment="0" min="-2" pref="59" max="-2" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="edtCLI_CODIGO" min="-2" pref="96" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="edtEND_CODIGO" min="-2" pref="96" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="edtCON_CODIGO" min="-2" pref="96" max="-2" attributes="0"/>
-                          </Group>
                           <Component id="lblCLI_NOME" alignment="0" min="-2" pref="59" max="-2" attributes="0"/>
                           <Component id="edtCLI_NOME" alignment="0" min="-2" pref="470" max="-2" attributes="0"/>
                           <Component id="lblCLI_LIMITECRED" alignment="0" min="-2" pref="131" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="edtCLI_LIMITECRED" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="edtCLI_CNPJ" alignment="0" pref="170" max="32767" attributes="0"/>
-                                  <Component id="lblCLI_CNPJ" alignment="0" min="-2" pref="59" max="-2" attributes="0"/>
+                                  <Component id="lblCLI_CNPJ" alignment="0" min="-2" pref="91" max="-2" attributes="0"/>
+                                  <Component id="edtCLI_CNPJ" alignment="0" min="-2" pref="164" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lblCLI_INSCEST" min="-2" pref="59" max="-2" attributes="0"/>
-                                  <Component id="edtCLI_INSCEST" min="-2" pref="170" max="-2" attributes="0"/>
+                                  <Component id="lblCLI_INSCEST" min="-2" pref="88" max="-2" attributes="0"/>
+                                  <Component id="edtCLI_INSCEST" min="-2" pref="164" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lblCLI_CODIGO" alignment="0" min="-2" pref="59" max="-2" attributes="0"/>
+                                  <Component id="edtCLI_CODIGO" alignment="0" min="-2" pref="96" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="cbxCLI_FISICA" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblCLI_FISICA" min="-2" pref="105" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace pref="386" max="32767" attributes="0"/>
+                      <EmptySpace pref="390" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="edtEND_CODIGO" min="-2" pref="96" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="edtCON_CODIGO" min="-2" pref="96" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -113,12 +121,14 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                      <Component id="lblCLI_CODIGO" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblCLI_CODIGO" alignment="3" pref="19" max="32767" attributes="0"/>
+                          <Component id="lblCLI_FISICA" alignment="3" max="32767" attributes="0"/>
+                      </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="edtCLI_CODIGO" alignment="3" pref="25" max="32767" attributes="0"/>
-                          <Component id="edtEND_CODIGO" alignment="3" pref="25" max="32767" attributes="0"/>
-                          <Component id="edtCON_CODIGO" alignment="3" pref="25" max="32767" attributes="0"/>
+                          <Component id="cbxCLI_FISICA" alignment="3" pref="26" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="lblCLI_NOME" max="32767" attributes="0"/>
@@ -131,14 +141,19 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="edtCLI_CNPJ" alignment="3" pref="25" max="32767" attributes="0"/>
-                          <Component id="edtCLI_INSCEST" alignment="3" pref="25" max="32767" attributes="0"/>
+                          <Component id="edtCLI_CNPJ" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                          <Component id="edtCLI_INSCEST" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="lblCLI_LIMITECRED" min="-2" pref="25" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="edtCLI_LIMITECRED" min="-2" pref="25" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
+                      <Component id="edtCLI_LIMITECRED" min="-2" pref="27" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="edtCON_CODIGO" alignment="3" pref="25" max="32767" attributes="0"/>
+                          <Component id="edtEND_CODIGO" alignment="3" pref="25" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -167,31 +182,13 @@
             </Component>
             <Component class="javax.swing.JLabel" name="lblCLI_CNPJ">
               <Properties>
-                <Property name="text" type="java.lang.String" value="CNPJ"/>
+                <Property name="text" type="java.lang.String" value="CPF/CNPJ"/>
               </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="edtCLI_CNPJ">
-              <Properties>
-                <Property name="toolTipText" type="java.lang.String" value="Digite o CPF do funcion&#xe1;rio"/>
-              </Properties>
-              <Events>
-                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="edtCLI_CNPJKeyTyped"/>
-                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="edtCLI_CNPJKeyReleased"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="lblCLI_INSCEST">
               <Properties>
-                <Property name="text" type="java.lang.String" value="INSCEST"/>
+                <Property name="text" type="java.lang.String" value="RG/INSCEST"/>
               </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="edtCLI_INSCEST">
-              <Properties>
-                <Property name="toolTipText" type="java.lang.String" value="Digite o RG do funcion&#xe1;rio"/>
-              </Properties>
-              <Events>
-                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="edtCLI_INSCESTKeyTyped"/>
-                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="edtCLI_INSCESTKeyReleased"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="lblCLI_LIMITECRED">
               <Properties>
@@ -215,14 +212,46 @@
                 <Property name="toolTipText" type="java.lang.String" value=""/>
               </Properties>
             </Component>
+            <Component class="javax.swing.JComboBox" name="cbxCLI_FISICA">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="3">
+                    <StringItem index="0" value="Selecionar"/>
+                    <StringItem index="1" value="F&#xcd;SICA"/>
+                    <StringItem index="2" value="J&#xda;RIDICA"/>
+                  </StringArray>
+                </Property>
+                <Property name="focusable" type="boolean" value="false"/>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblCLI_FISICA">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="F&#xed;sica/J&#xfa;ridica"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JFormattedTextField" name="edtCLI_CNPJ">
+              <Properties>
+                <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+                  <Format subtype="0" type="0"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JFormattedTextField" name="edtCLI_INSCEST">
+              <Properties>
+                <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+                  <Format subtype="0" type="0"/>
+                </Property>
+              </Properties>
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="pnlENDERECO">
           <Properties>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
-                <EtchetBorder/>
-              </Border>
+              <Border info="null"/>
             </Property>
           </Properties>
           <Constraints>
@@ -272,7 +301,7 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace pref="121" max="32767" attributes="0"/>
+                      <EmptySpace pref="125" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -280,9 +309,9 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="lblEND_LOGRADOURO" pref="19" max="32767" attributes="0"/>
+                      <Component id="lblEND_LOGRADOURO" pref="20" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="cbxEND_LOGRADOURO" pref="26" max="32767" attributes="0"/>
+                      <Component id="cbxEND_LOGRADOURO" max="32767" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
@@ -297,7 +326,7 @@
                               </Group>
                           </Group>
                           <Group type="102" attributes="0">
-                              <Component id="lblEND_ENDERECO" pref="18" max="32767" attributes="0"/>
+                              <Component id="lblEND_ENDERECO" pref="19" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="edtEND_ENDERECO" pref="25" max="32767" attributes="0"/>
                           </Group>
@@ -308,7 +337,7 @@
                               <Component id="lblEND_CIDADE" alignment="3" pref="21" max="32767" attributes="0"/>
                               <Component id="lblEND_UF" alignment="3" pref="21" max="32767" attributes="0"/>
                           </Group>
-                          <Component id="lblEND_BAIRRO" alignment="0" pref="21" max="32767" attributes="0"/>
+                          <Component id="lblEND_BAIRRO" alignment="0" pref="22" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -450,9 +479,7 @@
         <Container class="javax.swing.JPanel" name="pnlCONTATO">
           <Properties>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
-                <EtchetBorder/>
-              </Border>
+              <Border info="null"/>
             </Property>
           </Properties>
           <Constraints>
@@ -482,7 +509,7 @@
                           <Component id="lblCON_EMAIL" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="edtCON_EMAIL" alignment="0" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="476" max="32767" attributes="0"/>
+                      <EmptySpace pref="480" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -500,9 +527,9 @@
                           <Component id="edtCON_CELULAR" alignment="3" pref="26" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="lblCON_EMAIL" pref="19" max="32767" attributes="0"/>
+                      <Component id="lblCON_EMAIL" pref="21" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="edtCON_EMAIL" pref="26" max="32767" attributes="0"/>
+                      <Component id="edtCON_EMAIL" pref="28" max="32767" attributes="0"/>
                       <EmptySpace min="-2" pref="169" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -588,9 +615,7 @@
             <Container class="javax.swing.JPanel" name="pnlENDERECO_COBRANCA">
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
-                    <EtchetBorder/>
-                  </Border>
+                  <Border info="null"/>
                 </Property>
               </Properties>
 
@@ -618,10 +643,10 @@
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="lblCLI_COBR_ENDERECO" min="-2" max="-2" attributes="0"/>
                                       <Component id="edtCLI_COBR_ENDERECO" alignment="0" min="-2" pref="470" max="-2" attributes="0"/>
-                                      <Component id="lblCLI_COBR_ENDERECO" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="lblCLI_COBR_NUMERO" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="edtCLI_COBR_NUMERO" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
@@ -633,7 +658,7 @@
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace pref="121" max="32767" attributes="0"/>
+                          <EmptySpace pref="123" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -655,12 +680,12 @@
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="edtCLI_COBR_NUMERO" alignment="3" pref="25" max="32767" attributes="0"/>
                                       <Component id="edtCLI_COBR_CEP" alignment="3" pref="25" max="32767" attributes="0"/>
+                                      <Component id="edtCLI_COBR_ENDERECO" alignment="3" pref="25" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="lblCLI_COBR_ENDERECO" pref="18" max="32767" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="edtCLI_COBR_ENDERECO" pref="25" max="32767" attributes="0"/>
+                                  <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>

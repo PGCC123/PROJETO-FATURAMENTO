@@ -570,12 +570,6 @@ public class FuncionarioView extends IMenu {
                     funcionariomodel.setFUN_DTADMISSAO(edtFUN_DTADMISSAO.getText());
                     funcionariomodel.setFUN_DTDEMISSAO(edtFUN_DTDEMISSAO.getText());
 
-                    EnderecoController enderecocontroller = new EnderecoController();
-                    enderecocontroller.gravar(getOperacao(), enderecomodel);
-
-                    ContatoController contatocontroller = new ContatoController();
-                    contatocontroller.gravar(getOperacao(), contatomodel);
-
                     FuncionarioController funcionariocontroller = new FuncionarioController();
                     funcionariocontroller.gravar(getOperacao(), funcionariomodel);
 
@@ -1001,7 +995,7 @@ public class FuncionarioView extends IMenu {
     private javax.swing.JComboBox<String> cbxEND_UF;
     private javax.swing.JTextField edtCON_CELULAR;
     private javax.swing.JTextField edtCON_CODIGO;
-    private javax.swing.JTextField edtCON_EMAIL;
+    javax.swing.JTextField edtCON_EMAIL;
     private javax.swing.JTextField edtCON_TELEFONE;
     private javax.swing.JTextField edtEND_BAIRRO;
     private javax.swing.JTextField edtEND_CEP;

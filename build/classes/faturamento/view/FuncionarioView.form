@@ -627,6 +627,9 @@
               <Properties>
                 <Property name="toolTipText" type="java.lang.String" value="Digite o endere&#xe7;o de e-mail do funcion&#xe1;rio"/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="0"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>

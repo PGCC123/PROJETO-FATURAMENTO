@@ -3,15 +3,19 @@ package faturamento.view;
 import faturamento.controller.ClienteController;
 import faturamento.controller.ContatoController;
 import faturamento.controller.EnderecoController;
-import faturamento.controller.FuncionarioController;
 import faturamento.model.ClienteModel;
 import faturamento.model.ContatoModel;
 import faturamento.model.EnderecoModel;
-import faturamento.model.FuncionarioModel;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.HeadlessException;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.BorderFactory;
 import javax.swing.JOptionPane;
 import javax.swing.border.Border;
@@ -41,6 +45,47 @@ public class ClienteView extends javax.swing.JFrame {
         edtCON_CODIGO.setVisible(false);
         edtEND_CODIGO.setVisible(false);
 
+        this.escolhaCliente(); //metodo que tem como funcionalidade alterar a mask de acordo com o tipo de cliente.
+    }
+
+    public void escolhaCliente() {
+
+        cbxCLI_FISICA.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (cbxCLI_FISICA.getSelectedItem().equals("FÍSICA")) {
+
+                    lblCLI_CNPJ.setText("CPF");
+                    lblCLI_INSCEST.setText("RG");
+                    try {
+                        edtCLI_CNPJ.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+                        edtCLI_INSCEST.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.###-#")));
+                    } catch (ParseException ex) {
+                        Logger.getLogger(ClienteView.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+
+                } else if (cbxCLI_FISICA.getSelectedItem().equals("JÚRIDICA")) {
+                    lblCLI_CNPJ.setText("CNPJ");
+                    lblCLI_INSCEST.setText("INSCEST");
+                    try {
+                        edtCLI_CNPJ.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.###/####-##")));
+                        edtCLI_INSCEST.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###.###")));
+                    } catch (ParseException ex) {
+                        Logger.getLogger(ClienteView.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                } else if (cbxCLI_FISICA.getSelectedItem().equals("Selecionar")) {
+                    lblCLI_CNPJ.setText("CPF/CNPJ");
+                    lblCLI_INSCEST.setText("RG/INSCEST");
+
+                    try {
+                        edtCLI_CNPJ.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##############")));
+                        edtCLI_INSCEST.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###########")));
+                    } catch (ParseException ex) {
+                        Logger.getLogger(ClienteView.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+            }
+        });
     }
 
     @SuppressWarnings("unchecked")
@@ -55,13 +100,15 @@ public class ClienteView extends javax.swing.JFrame {
         edtCLI_NOME = new javax.swing.JTextField();
         lblCLI_NOME = new javax.swing.JLabel();
         lblCLI_CNPJ = new javax.swing.JLabel();
-        edtCLI_CNPJ = new javax.swing.JTextField();
         lblCLI_INSCEST = new javax.swing.JLabel();
-        edtCLI_INSCEST = new javax.swing.JTextField();
         lblCLI_LIMITECRED = new javax.swing.JLabel();
         edtCLI_LIMITECRED = new javax.swing.JTextField();
         edtEND_CODIGO = new javax.swing.JTextField();
         edtCON_CODIGO = new javax.swing.JTextField();
+        cbxCLI_FISICA = new javax.swing.JComboBox<>();
+        lblCLI_FISICA = new javax.swing.JLabel();
+        edtCLI_CNPJ = new javax.swing.JFormattedTextField();
+        edtCLI_INSCEST = new javax.swing.JFormattedTextField();
         pnlENDERECO = new javax.swing.JPanel();
         lblEND_LOGRADOURO = new javax.swing.JLabel();
         cbxEND_LOGRADOURO = new javax.swing.JComboBox<>();
@@ -121,7 +168,7 @@ public class ClienteView extends javax.swing.JFrame {
         jTabbedPane.setTabLayoutPolicy(javax.swing.JTabbedPane.SCROLL_TAB_LAYOUT);
         jTabbedPane.setFocusable(false);
 
-        pnlDADOS.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        pnlDADOS.setBorder(null);
 
         lblCLI_CODIGO.setText("Código");
 
@@ -132,29 +179,9 @@ public class ClienteView extends javax.swing.JFrame {
 
         lblCLI_NOME.setText("Nome");
 
-        lblCLI_CNPJ.setText("CNPJ");
+        lblCLI_CNPJ.setText("CPF/CNPJ");
 
-        edtCLI_CNPJ.setToolTipText("Digite o CPF do funcionário");
-        edtCLI_CNPJ.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                edtCLI_CNPJKeyTyped(evt);
-            }
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                edtCLI_CNPJKeyReleased(evt);
-            }
-        });
-
-        lblCLI_INSCEST.setText("INSCEST");
-
-        edtCLI_INSCEST.setToolTipText("Digite o RG do funcionário");
-        edtCLI_INSCEST.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                edtCLI_INSCESTKeyTyped(evt);
-            }
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                edtCLI_INSCESTKeyReleased(evt);
-            }
-        });
+        lblCLI_INSCEST.setText("RG/INSCEST");
 
         lblCLI_LIMITECRED.setText("Límite de Crédito");
 
@@ -166,6 +193,15 @@ public class ClienteView extends javax.swing.JFrame {
         edtCON_CODIGO.setEditable(false);
         edtCON_CODIGO.setToolTipText("");
 
+        cbxCLI_FISICA.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecionar", "FÍSICA", "JÚRIDICA" }));
+        cbxCLI_FISICA.setFocusable(false);
+
+        lblCLI_FISICA.setText("Física/Júridica");
+
+        edtCLI_CNPJ.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
+
+        edtCLI_INSCEST.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
+
         javax.swing.GroupLayout pnlDADOSLayout = new javax.swing.GroupLayout(pnlDADOS);
         pnlDADOS.setLayout(pnlDADOSLayout);
         pnlDADOSLayout.setHorizontalGroup(
@@ -173,37 +209,45 @@ public class ClienteView extends javax.swing.JFrame {
             .addGroup(pnlDADOSLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnlDADOSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblCLI_CODIGO, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(pnlDADOSLayout.createSequentialGroup()
-                        .addComponent(edtCLI_CODIGO, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(edtEND_CODIGO, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(edtCON_CODIGO, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(lblCLI_NOME, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(edtCLI_NOME, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblCLI_LIMITECRED, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(pnlDADOSLayout.createSequentialGroup()
-                        .addGroup(pnlDADOSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(edtCLI_LIMITECRED, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(edtCLI_CNPJ, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
-                            .addComponent(lblCLI_CNPJ, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(pnlDADOSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(edtCLI_LIMITECRED)
+                            .addComponent(lblCLI_CNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(edtCLI_CNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(pnlDADOSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblCLI_INSCEST, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(edtCLI_INSCEST, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(386, Short.MAX_VALUE))
+                            .addComponent(lblCLI_INSCEST, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(edtCLI_INSCEST, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(pnlDADOSLayout.createSequentialGroup()
+                        .addGroup(pnlDADOSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblCLI_CODIGO, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(edtCLI_CODIGO, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(pnlDADOSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cbxCLI_FISICA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblCLI_FISICA, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(390, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDADOSLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(edtEND_CODIGO, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(edtCON_CODIGO, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         pnlDADOSLayout.setVerticalGroup(
             pnlDADOSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlDADOSLayout.createSequentialGroup()
                 .addGap(10, 10, 10)
-                .addComponent(lblCLI_CODIGO, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(pnlDADOSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCLI_CODIGO, javax.swing.GroupLayout.DEFAULT_SIZE, 19, Short.MAX_VALUE)
+                    .addComponent(lblCLI_FISICA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlDADOSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(edtCLI_CODIGO, javax.swing.GroupLayout.PREFERRED_SIZE, 25, Short.MAX_VALUE)
-                    .addComponent(edtEND_CODIGO, javax.swing.GroupLayout.PREFERRED_SIZE, 25, Short.MAX_VALUE)
-                    .addComponent(edtCON_CODIGO, javax.swing.GroupLayout.PREFERRED_SIZE, 25, Short.MAX_VALUE))
+                    .addComponent(cbxCLI_FISICA, javax.swing.GroupLayout.PREFERRED_SIZE, 26, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblCLI_NOME, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -214,18 +258,22 @@ public class ClienteView extends javax.swing.JFrame {
                     .addComponent(lblCLI_INSCEST, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlDADOSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(edtCLI_CNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, 25, Short.MAX_VALUE)
-                    .addComponent(edtCLI_INSCEST, javax.swing.GroupLayout.PREFERRED_SIZE, 25, Short.MAX_VALUE))
+                    .addComponent(edtCLI_CNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(edtCLI_INSCEST, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblCLI_LIMITECRED, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(edtCLI_LIMITECRED, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(68, 68, 68))
+                .addComponent(edtCLI_LIMITECRED, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnlDADOSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(edtCON_CODIGO, javax.swing.GroupLayout.PREFERRED_SIZE, 25, Short.MAX_VALUE)
+                    .addComponent(edtEND_CODIGO, javax.swing.GroupLayout.PREFERRED_SIZE, 25, Short.MAX_VALUE))
+                .addGap(31, 31, 31))
         );
 
         jTabbedPane.addTab("Dados Pessoais", pnlDADOS);
 
-        pnlENDERECO.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        pnlENDERECO.setBorder(null);
 
         lblEND_LOGRADOURO.setText("Logradouro");
 
@@ -298,15 +346,15 @@ public class ClienteView extends javax.swing.JFrame {
                         .addGroup(pnlENDERECOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblEND_CEP)
                             .addComponent(edtEND_CEP, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(121, Short.MAX_VALUE))
+                .addContainerGap(125, Short.MAX_VALUE))
         );
         pnlENDERECOLayout.setVerticalGroup(
             pnlENDERECOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlENDERECOLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblEND_LOGRADOURO, javax.swing.GroupLayout.DEFAULT_SIZE, 19, Short.MAX_VALUE)
+                .addComponent(lblEND_LOGRADOURO, javax.swing.GroupLayout.DEFAULT_SIZE, 20, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cbxEND_LOGRADOURO, javax.swing.GroupLayout.PREFERRED_SIZE, 26, Short.MAX_VALUE)
+                .addComponent(cbxEND_LOGRADOURO)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnlENDERECOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlENDERECOLayout.createSequentialGroup()
@@ -318,7 +366,7 @@ public class ClienteView extends javax.swing.JFrame {
                             .addComponent(edtEND_NUMERO, javax.swing.GroupLayout.PREFERRED_SIZE, 25, Short.MAX_VALUE)
                             .addComponent(edtEND_CEP, javax.swing.GroupLayout.PREFERRED_SIZE, 25, Short.MAX_VALUE)))
                     .addGroup(pnlENDERECOLayout.createSequentialGroup()
-                        .addComponent(lblEND_ENDERECO, javax.swing.GroupLayout.DEFAULT_SIZE, 18, Short.MAX_VALUE)
+                        .addComponent(lblEND_ENDERECO, javax.swing.GroupLayout.DEFAULT_SIZE, 19, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(edtEND_ENDERECO, javax.swing.GroupLayout.PREFERRED_SIZE, 25, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -326,7 +374,7 @@ public class ClienteView extends javax.swing.JFrame {
                     .addGroup(pnlENDERECOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(lblEND_CIDADE, javax.swing.GroupLayout.DEFAULT_SIZE, 21, Short.MAX_VALUE)
                         .addComponent(lblEND_UF, javax.swing.GroupLayout.DEFAULT_SIZE, 21, Short.MAX_VALUE))
-                    .addComponent(lblEND_BAIRRO, javax.swing.GroupLayout.DEFAULT_SIZE, 21, Short.MAX_VALUE))
+                    .addComponent(lblEND_BAIRRO, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlENDERECOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(edtEND_BAIRRO, javax.swing.GroupLayout.PREFERRED_SIZE, 26, Short.MAX_VALUE)
@@ -337,7 +385,7 @@ public class ClienteView extends javax.swing.JFrame {
 
         jTabbedPane.addTab("Endereço", pnlENDERECO);
 
-        pnlCONTATO.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        pnlCONTATO.setBorder(null);
 
         lblCON_TELEFONE.setText("Telefone");
 
@@ -384,7 +432,7 @@ public class ClienteView extends javax.swing.JFrame {
                         .addComponent(edtCON_CELULAR, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(lblCON_EMAIL)
                     .addComponent(edtCON_EMAIL))
-                .addContainerGap(476, Short.MAX_VALUE))
+                .addContainerGap(480, Short.MAX_VALUE))
         );
         pnlCONTATOLayout.setVerticalGroup(
             pnlCONTATOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -398,15 +446,15 @@ public class ClienteView extends javax.swing.JFrame {
                     .addComponent(edtCON_TELEFONE, javax.swing.GroupLayout.PREFERRED_SIZE, 26, Short.MAX_VALUE)
                     .addComponent(edtCON_CELULAR, javax.swing.GroupLayout.PREFERRED_SIZE, 26, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblCON_EMAIL, javax.swing.GroupLayout.DEFAULT_SIZE, 19, Short.MAX_VALUE)
+                .addComponent(lblCON_EMAIL, javax.swing.GroupLayout.DEFAULT_SIZE, 21, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(edtCON_EMAIL, javax.swing.GroupLayout.PREFERRED_SIZE, 26, Short.MAX_VALUE)
+                .addComponent(edtCON_EMAIL, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
                 .addGap(169, 169, 169))
         );
 
         jTabbedPane.addTab("Contato", pnlCONTATO);
 
-        pnlENDERECO_COBRANCA.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        pnlENDERECO_COBRANCA.setBorder(null);
 
         lblCLI_COBR_LOGRADOURO.setText("Logradouro");
 
@@ -469,8 +517,8 @@ public class ClienteView extends javax.swing.JFrame {
                         .addComponent(cbxCLI_COBR_UF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(pnlENDERECO_COBRANCALayout.createSequentialGroup()
                         .addGroup(pnlENDERECO_COBRANCALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(edtCLI_COBR_ENDERECO, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblCLI_COBR_ENDERECO))
+                            .addComponent(lblCLI_COBR_ENDERECO)
+                            .addComponent(edtCLI_COBR_ENDERECO, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(pnlENDERECO_COBRANCALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblCLI_COBR_NUMERO)
@@ -479,7 +527,7 @@ public class ClienteView extends javax.swing.JFrame {
                         .addGroup(pnlENDERECO_COBRANCALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblCLI_COBR_CEP)
                             .addComponent(edtCLI_COBR_CEP, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(121, Short.MAX_VALUE))
+                .addContainerGap(123, Short.MAX_VALUE))
         );
         pnlENDERECO_COBRANCALayout.setVerticalGroup(
             pnlENDERECO_COBRANCALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -497,11 +545,11 @@ public class ClienteView extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(pnlENDERECO_COBRANCALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(edtCLI_COBR_NUMERO, javax.swing.GroupLayout.PREFERRED_SIZE, 25, Short.MAX_VALUE)
-                            .addComponent(edtCLI_COBR_CEP, javax.swing.GroupLayout.PREFERRED_SIZE, 25, Short.MAX_VALUE)))
+                            .addComponent(edtCLI_COBR_CEP, javax.swing.GroupLayout.PREFERRED_SIZE, 25, Short.MAX_VALUE)
+                            .addComponent(edtCLI_COBR_ENDERECO, javax.swing.GroupLayout.PREFERRED_SIZE, 25, Short.MAX_VALUE)))
                     .addGroup(pnlENDERECO_COBRANCALayout.createSequentialGroup()
                         .addComponent(lblCLI_COBR_ENDERECO, javax.swing.GroupLayout.DEFAULT_SIZE, 18, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(edtCLI_COBR_ENDERECO, javax.swing.GroupLayout.PREFERRED_SIZE, 25, Short.MAX_VALUE)))
+                        .addGap(31, 31, 31)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlENDERECO_COBRANCALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlENDERECO_COBRANCALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -601,7 +649,7 @@ public class ClienteView extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLIMPARMouseClicked
 
     private void btnSALVARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSALVARActionPerformed
-        if (JOptionPane.showConfirmDialog(null, "Deseja cadastrar esse funcionário?",
+        if (JOptionPane.showConfirmDialog(null, "Deseja cadastrar esse cliente?",
                 "Confirmação", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
 
             if (validacao()) {
@@ -631,20 +679,22 @@ public class ClienteView extends javax.swing.JFrame {
 
                     clientemodel.setCON_MODEL(contatomodel);
 
-                    funcionariomodel.setFUN_CODIGO(Integer.parseInt(edtCLI_CODIGO.getText()));
-                    funcionariomodel.setFUN_NOME(edtCLI_NOME.getText());
-                    funcionariomodel.setFUN_CPF(edtCLI_CNPJ.getText());
-                    funcionariomodel.setFUN_RG(edtCLI_INSCEST.getText());
-                    funcionariomodel.setFUN_CTPS(edtFUN_CTPS.getText());
-                    funcionariomodel.setFUN_SALARIO(Double.parseDouble(edtCLI_LIMITECRED.getText()));
-                    funcionariomodel.setFUN_DTADMISSAO(edtFUN_DTADMISSAO.getText());
-                    funcionariomodel.setFUN_DTDEMISSAO(edtFUN_DTDEMISSAO.getText());
+                    //inicio dos atributos da classe ClienteModel
+                    clientemodel.setCLI_CODIGO(Integer.parseInt(edtCLI_CODIGO.getText()));
+                    clientemodel.setCLI_FISICA(cbxCLI_FISICA.getSelectedItem().toString());
+                    clientemodel.setCLI_NOME(edtCLI_NOME.getText());
+                    clientemodel.setCLI_CNPJ(edtCLI_CNPJ.getText());
+                    clientemodel.setCLI_INSCEST(edtCLI_INSCEST.getText());
+                    clientemodel.setCLI_LIMITECRED(Double.parseDouble(edtCLI_LIMITECRED.getText()));
 
-                    EnderecoController enderecocontroller = new EnderecoController();
-                    enderecocontroller.gravar(getOperacao(), enderecomodel);
-
-                    ContatoController contatocontroller = new ContatoController();
-                    contatocontroller.gravar(getOperacao(), contatomodel);
+                    clientemodel.setCLI_COBR_LOGRADOURO(cbxCLI_COBR_LOGRADOURO.getSelectedItem().toString());
+                    clientemodel.setCLI_COBR_ENDERECO(edtCLI_COBR_ENDERECO.getText());
+                    clientemodel.setCLI_COBR_NUMERRO(edtCLI_COBR_NUMERO.getText());
+                    clientemodel.setCLI_COBR_CEP(edtCLI_COBR_CEP.getText());
+                    clientemodel.setCLI_COBR_BAIRRO(edtCLI_COBR_BAIRRO.getText());
+                    clientemodel.setCLI_COBR_CIDADE(edtCLI_COBR_CIDADE.getText());
+                    clientemodel.setCLI_COBR_UF(cbxCLI_COBR_UF.getSelectedItem().toString());
+                    //fim dos atributos da classe ClienteModel
 
                     ClienteController clientecontroller = new ClienteController();
                     clientecontroller.gravar(getOperacao(), clientemodel);
@@ -660,38 +710,6 @@ public class ClienteView extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_btnSALVARActionPerformed
-
-    private void edtCLI_CNPJKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_edtCLI_CNPJKeyReleased
-        String campo = edtCLI_CNPJ.getText();
-        if (campo.length() == 11) {
-            String cpf;
-            cpf = String.valueOf("" + campo.charAt(0) + campo.charAt(1) + campo.charAt(2) + "." + campo.charAt(3) + campo.charAt(4) + campo.charAt(5) + "." + campo.charAt(6) + campo.charAt(7) + campo.charAt(8) + "-" + campo.charAt(9) + campo.charAt(10));
-            edtCLI_CNPJ.setText(cpf);
-        }
-    }//GEN-LAST:event_edtCLI_CNPJKeyReleased
-
-    private void edtCLI_CNPJKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_edtCLI_CNPJKeyTyped
-        int quantidade = 11;
-        if (edtCLI_CNPJ.getText().length() >= quantidade) {
-            evt.consume();
-        }
-    }//GEN-LAST:event_edtCLI_CNPJKeyTyped
-
-    private void edtCLI_INSCESTKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_edtCLI_INSCESTKeyReleased
-        String campo = edtCLI_INSCEST.getText();
-        if (campo.length() == 9) {
-            String rg;
-            rg = String.valueOf("" + campo.charAt(0) + campo.charAt(1) + "." + campo.charAt(2) + campo.charAt(3) + campo.charAt(4) + "." + campo.charAt(5) + campo.charAt(6) + campo.charAt(7) + "-" + campo.charAt(8));
-            edtCLI_INSCEST.setText(rg);
-        }
-    }//GEN-LAST:event_edtCLI_INSCESTKeyReleased
-
-    private void edtCLI_INSCESTKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_edtCLI_INSCESTKeyTyped
-        int quantidade = 9;
-        if (edtCLI_INSCEST.getText().length() >= quantidade) {
-            evt.consume();
-        }
-    }//GEN-LAST:event_edtCLI_INSCESTKeyTyped
 
     private void edtEND_CEPKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_edtEND_CEPKeyReleased
         String campo = edtEND_CEP.getText();
@@ -748,31 +766,46 @@ public class ClienteView extends javax.swing.JFrame {
         setOperacao("incluir");
     }//GEN-LAST:event_btnPESQUISAActionPerformed
 
-    private void edtCLI_COBR_CEPKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_edtCLI_COBR_CEPKeyTyped
-        // TODO add your handling code here:
-    }//GEN-LAST:event_edtCLI_COBR_CEPKeyTyped
+    private void btnNOVOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNOVOActionPerformed
+        this.ativarCampos();
+        this.limpar();
+
+        setOperacao("incluir");
+    }//GEN-LAST:event_btnNOVOActionPerformed
 
     private void edtCLI_COBR_CEPKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_edtCLI_COBR_CEPKeyReleased
-        // TODO add your handling code here:
+        String campo = edtEND_CEP.getText();
+        if (campo.length() == 8) {
+            String cep;
+            cep = String.valueOf("" + campo.charAt(0) + campo.charAt(1) + campo.charAt(2) + campo.charAt(3) + campo.charAt(4) + "-" + campo.charAt(5) + campo.charAt(6) + campo.charAt(7));
+            edtEND_CEP.setText(cep);
+        }
     }//GEN-LAST:event_edtCLI_COBR_CEPKeyReleased
 
-    private void btnNOVOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNOVOActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnNOVOActionPerformed
+    private void edtCLI_COBR_CEPKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_edtCLI_COBR_CEPKeyTyped
+        int quantidade = 8;
+        if (edtEND_CEP.getText().length() >= quantidade) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_edtCLI_COBR_CEPKeyTyped
 
     public void limpar() {
 
         edtCLI_CODIGO.setText("0");
         edtEND_CODIGO.setText("0");
         edtCON_CODIGO.setText("0");
-
         edtCLI_NOME.setText("");
-        edtFUN_DTADMISSAO.setText("");
-        edtFUN_DTDEMISSAO.setText("");
         edtCLI_CNPJ.setText("");
         edtCLI_INSCEST.setText("");
-        edtFUN_CTPS.setText("");
         edtCLI_LIMITECRED.setText("");
+
+        cbxCLI_COBR_LOGRADOURO.setSelectedItem("Selecionar");
+        edtCLI_COBR_ENDERECO.setText("");
+        edtCLI_COBR_NUMERO.setText("");
+        edtCLI_COBR_CEP.setText("");
+        edtCLI_COBR_BAIRRO.setText("");
+        edtCLI_COBR_CIDADE.setText("");
+        cbxCLI_COBR_UF.setSelectedItem("Selecionar");
 
         edtEND_ENDERECO.setText("");
         edtEND_BAIRRO.setText("");
@@ -793,37 +826,23 @@ public class ClienteView extends javax.swing.JFrame {
 
         if (edtCLI_NOME.getText() == null || edtCLI_NOME.getText().length() == 0) {
 
-            Border border = BorderFactory.createLineBorder(Color.RED, (int) 1.5);
+            Border border = BorderFactory.createLineBorder(Color.RED, (int) 1);
             edtCLI_NOME.setBorder(border);
 
             menssagemerro += "Nome inválido!\n";
 
         } else {
 
-            Border border = BorderFactory.createLineBorder(Color.LIGHT_GRAY);
+            Border border = BorderFactory.createLineBorder(Color.LIGHT_GRAY, (int) 1);
             edtCLI_NOME.setBorder(border);
         }
-
-        if (edtFUN_DTADMISSAO.getText() == null || edtFUN_DTADMISSAO.getText().length() == 0) {
-
-            Border border = BorderFactory.createLineBorder(Color.RED, (int) 1.5);
-            edtFUN_DTADMISSAO.setBorder(border);
-
-            menssagemerro += "Admissão inválida\n";
-
-        } else {
-
-            Border border = BorderFactory.createLineBorder(Color.LIGHT_GRAY);
-            edtFUN_DTADMISSAO.setBorder(border);
-
-        }
-
-        if (edtCLI_CNPJ.getText() == null || edtCLI_CNPJ.getText().length() == 0) {
+ 
+        if (edtCLI_CNPJ.getText().length() < 11 || edtCLI_CNPJ.getText().length() < 14 || edtCLI_CNPJ.getText() == null) {
 
             Border border = BorderFactory.createLineBorder(Color.RED, (int) 1.5);
             edtCLI_CNPJ.setBorder(border);
 
-            menssagemerro += "CPF inválido\n";
+            menssagemerro += "CPF/CNPJ inválido\n";
 
         } else {
 
@@ -832,12 +851,12 @@ public class ClienteView extends javax.swing.JFrame {
 
         }
 
-        if (edtCLI_INSCEST.getText() == null || edtCLI_INSCEST.getText().length() == 0) {
+        if (edtCLI_INSCEST.getText().length() < 9 || edtCLI_INSCEST.getText().length() < 12 || edtCLI_INSCEST.getText() == null) {
 
             Border border = BorderFactory.createLineBorder(Color.RED, (int) 1.5);
             edtCLI_INSCEST.setBorder(border);
 
-            menssagemerro += "RG inválido\n";
+            menssagemerro += "RG/INSCEST inválido\n";
 
         } else {
 
@@ -845,17 +864,17 @@ public class ClienteView extends javax.swing.JFrame {
             edtCLI_INSCEST.setBorder(border);
         }
 
-        if (edtFUN_CTPS.getText() == null || edtFUN_CTPS.getText().length() == 0) {
+        if (edtCLI_LIMITECRED.getText() == null || edtCLI_LIMITECRED.getText().length() == 0) {
 
             Border border = BorderFactory.createLineBorder(Color.RED, (int) 1.5);
-            edtFUN_CTPS.setBorder(border);
+            edtCLI_LIMITECRED.setBorder(border);
 
-            menssagemerro += "CTPS inválida\n";
+            menssagemerro += "Limíte de Crédito inválida\n";
 
         } else {
 
             Border border = BorderFactory.createLineBorder(Color.LIGHT_GRAY);
-            edtFUN_CTPS.setBorder(border);
+            edtCLI_LIMITECRED.setBorder(border);
         }
 
         if (menssagemerro.length() == 0) {
@@ -872,9 +891,6 @@ public class ClienteView extends javax.swing.JFrame {
     public void ativarCampos() {
 
         edtCLI_CNPJ.setEnabled(true);
-        edtFUN_CTPS.setEnabled(true);
-        edtFUN_DTADMISSAO.setEnabled(true);
-        edtFUN_DTDEMISSAO.setEnabled(true);
         edtCLI_NOME.setEnabled(true);
         edtCLI_INSCEST.setEnabled(true);
         edtCLI_LIMITECRED.setEnabled(true);
@@ -895,9 +911,7 @@ public class ClienteView extends javax.swing.JFrame {
     public void inativarCampos() {
 
         edtCLI_CNPJ.setEnabled(false);
-        edtFUN_CTPS.setEnabled(false);
-        edtFUN_DTADMISSAO.setEnabled(false);
-        edtFUN_DTDEMISSAO.setEnabled(false);
+
         edtCLI_NOME.setEnabled(false);
         edtCLI_INSCEST.setEnabled(false);
         edtCLI_LIMITECRED.setEnabled(false);
@@ -924,16 +938,17 @@ public class ClienteView extends javax.swing.JFrame {
     private javax.swing.JButton btnSALVAR;
     private javax.swing.JComboBox<String> cbxCLI_COBR_LOGRADOURO;
     private javax.swing.JComboBox<String> cbxCLI_COBR_UF;
+    private javax.swing.JComboBox<String> cbxCLI_FISICA;
     private javax.swing.JComboBox<String> cbxEND_LOGRADOURO;
     private javax.swing.JComboBox<String> cbxEND_UF;
-    private javax.swing.JTextField edtCLI_CNPJ;
+    private javax.swing.JFormattedTextField edtCLI_CNPJ;
     private javax.swing.JTextField edtCLI_COBR_BAIRRO;
     private javax.swing.JTextField edtCLI_COBR_CEP;
     private javax.swing.JTextField edtCLI_COBR_CIDADE;
     private javax.swing.JTextField edtCLI_COBR_ENDERECO;
     private javax.swing.JTextField edtCLI_COBR_NUMERO;
     private javax.swing.JTextField edtCLI_CODIGO;
-    private javax.swing.JTextField edtCLI_INSCEST;
+    private javax.swing.JFormattedTextField edtCLI_INSCEST;
     private javax.swing.JTextField edtCLI_LIMITECRED;
     private javax.swing.JTextField edtCLI_NOME;
     private javax.swing.JTextField edtCON_CELULAR;
@@ -957,6 +972,7 @@ public class ClienteView extends javax.swing.JFrame {
     private javax.swing.JLabel lblCLI_COBR_NUMERO;
     private javax.swing.JLabel lblCLI_COBR_UF;
     private javax.swing.JLabel lblCLI_CODIGO;
+    private javax.swing.JLabel lblCLI_FISICA;
     private javax.swing.JLabel lblCLI_INSCEST;
     private javax.swing.JLabel lblCLI_LIMITECRED;
     private javax.swing.JLabel lblCLI_NOME;
