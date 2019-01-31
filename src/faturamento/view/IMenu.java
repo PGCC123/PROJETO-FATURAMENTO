@@ -23,12 +23,14 @@ public abstract class IMenu extends JFrame {
     }
 
     private void Menu() {
+        
+        
 
         JMenu cadastro = new JMenu("Cadastros");
-        JMenuItem usuario = new JMenuItem("Cadastros de Usuários");
-        JMenuItem funcionario = new JMenuItem("Cadastros de Funcionários");
-        JMenuItem cliente = new JMenuItem("Cadastro de Clientes");
         JMenuItem fornecedor = new JMenuItem("Cadastro de Fornecedores");
+
+        // inicio usuario
+        JMenuItem usuario = new JMenuItem("Cadastros de Usuários");
 
         cadastro.add(usuario);
         usuario.addActionListener(
@@ -42,12 +44,21 @@ public abstract class IMenu extends JFrame {
                 dispose();
                 CadastroView cadastroview;
                 cadastroview = new CadastroView();
-                usuario.setVisible(true);
+                cadastroview.setVisible(true);
             }
         });
+        // fim usuario
+
+        // inicio funcionario
+        JMenu funcionario = new JMenu("Funcionários");
+        JMenuItem cadastrofuncionario = new JMenuItem("Cadastrar Funncionário");
+        JMenuItem pesquisafuncionario = new JMenuItem("Pesquisar Funncionário");
+        IMenu frame = this;
 
         cadastro.add(funcionario);
-        funcionario.addActionListener(
+
+        funcionario.add(cadastrofuncionario);
+        cadastrofuncionario.addActionListener(
                 new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -58,10 +69,30 @@ public abstract class IMenu extends JFrame {
                 dispose();
                 FuncionarioView funcionarioview;
                 funcionarioview = new FuncionarioView();
-                funcionario.setVisible(true);
+                funcionarioview.setVisible(true);
 
             }
         });
+
+        funcionario.add(pesquisafuncionario);
+        pesquisafuncionario.addActionListener(
+                new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                Conexao objconexao;
+                objconexao = new Conexao();
+                
+                dispose();
+                PesquisaFuncionarioView pesquisa;
+                pesquisa = new PesquisaFuncionarioView(frame, true);
+                pesquisa.setVisible(true);
+
+            }
+        });
+        // fim funcionario
+
+        JMenuItem cliente = new JMenuItem("Cadastro de Clientes");
 
         cadastro.add(cliente);
         cliente.addActionListener(
@@ -75,7 +106,7 @@ public abstract class IMenu extends JFrame {
                 dispose();
                 ClienteView clienteiew;
                 clienteiew = new ClienteView();
-                cliente.setVisible(true);
+                clienteiew.setVisible(true);
             }
         });
 

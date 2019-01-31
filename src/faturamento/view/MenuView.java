@@ -35,6 +35,9 @@ public class MenuView extends javax.swing.JFrame {
         lblMENSAGEM.setText(user);
         lblCODIGO.setVisible(false);
 
+        lblRECEBER.setVisible(false);
+        lblPAGAR.setVisible(false);
+
     }
 
     @SuppressWarnings("unchecked")
@@ -56,10 +59,12 @@ public class MenuView extends javax.swing.JFrame {
         lblMENSAGEM = new javax.swing.JLabel();
         lblCODIGO = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        lblPAGAR = new javax.swing.JLabel();
+        lblRECEBER = new javax.swing.JLabel();
         iconTELA_INICIO = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Sales System - Menu");
+        setTitle("Menu Principal");
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
@@ -139,6 +144,7 @@ public class MenuView extends javax.swing.JFrame {
         BARRA_MENU.add(btnFUNCIONARIOS);
 
         btnFINANCEIRO.setFont(new java.awt.Font("Ubuntu", 0, 15)); // NOI18N
+        btnFINANCEIRO.setIcon(new javax.swing.ImageIcon(getClass().getResource("/faturamento/icone/icon-finaceiro.png"))); // NOI18N
         btnFINANCEIRO.setText("Financeiro");
         btnFINANCEIRO.setFocusable(false);
         btnFINANCEIRO.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -146,6 +152,11 @@ public class MenuView extends javax.swing.JFrame {
         btnFINANCEIRO.setMaximumSize(new java.awt.Dimension(110, 45));
         btnFINANCEIRO.setMinimumSize(new java.awt.Dimension(110, 45));
         btnFINANCEIRO.setPreferredSize(new java.awt.Dimension(200, 45));
+        btnFINANCEIRO.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnFINANCEIROMouseClicked(evt);
+            }
+        });
         btnFINANCEIRO.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnFINANCEIROActionPerformed(evt);
@@ -194,7 +205,7 @@ public class MenuView extends javax.swing.JFrame {
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Acesse: www.pltec.com.br");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(560, 250, 180, 20);
+        jLabel2.setBounds(570, 250, 180, 20);
         getContentPane().add(lblMENSAGEM);
         lblMENSAGEM.setBounds(230, 250, 290, 20);
 
@@ -205,6 +216,16 @@ public class MenuView extends javax.swing.JFrame {
         jLabel5.setText("Usuario:");
         getContentPane().add(jLabel5);
         jLabel5.setBounds(170, 250, 56, 20);
+
+        lblPAGAR.setIcon(new javax.swing.ImageIcon(getClass().getResource("/faturamento/icone/icon-contas-pagar.png"))); // NOI18N
+        lblPAGAR.setText("Contas a Pagar");
+        getContentPane().add(lblPAGAR);
+        lblPAGAR.setBounds(270, 130, 150, 60);
+
+        lblRECEBER.setIcon(new javax.swing.ImageIcon(getClass().getResource("/faturamento/icone/icon-contas-receber.png"))); // NOI18N
+        lblRECEBER.setText("Contas a Receber");
+        getContentPane().add(lblRECEBER);
+        lblRECEBER.setBounds(430, 130, 200, 60);
 
         iconTELA_INICIO.setIcon(new javax.swing.ImageIcon(getClass().getResource("/faturamento/icone/icon-fundo-menu.jpg"))); // NOI18N
         iconTELA_INICIO.setText("Usuário");
@@ -320,6 +341,14 @@ public class MenuView extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_formWindowClosing
 
+    private void btnFINANCEIROMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFINANCEIROMouseClicked
+        
+        this.dispose();
+        menufi men = new menufi();
+        men.setVisible(true);
+        
+    }//GEN-LAST:event_btnFINANCEIROMouseClicked
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToolBar BARRA_MENU;
     private javax.swing.JButton btnCLIENTES;
@@ -337,6 +366,8 @@ public class MenuView extends javax.swing.JFrame {
     private javax.swing.JLabel lblDATA;
     private javax.swing.JLabel lblHORA;
     private javax.swing.JLabel lblMENSAGEM;
+    private javax.swing.JLabel lblPAGAR;
+    private javax.swing.JLabel lblRECEBER;
     // End of variables declaration//GEN-END:variables
 
     //classe interna com funcionalidade de mostrar a hora atual.

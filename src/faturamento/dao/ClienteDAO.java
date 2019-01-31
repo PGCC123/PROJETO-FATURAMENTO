@@ -4,7 +4,6 @@ import faturamento.conexao.Conexao;
 import faturamento.model.ClienteModel;
 import faturamento.model.ContatoModel;
 import faturamento.model.EnderecoModel;
-import faturamento.model.FuncionarioModel;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -43,7 +42,7 @@ public class ClienteDAO {
         stmt.setDouble(6, cliente.getCLI_LIMITECRED());
         stmt.setString(7, cliente.getCLI_COBR_LOGRADOURO());
         stmt.setString(8, cliente.getCLI_COBR_ENDERECO());
-        stmt.setString(9, cliente.getCLI_COBR_NUMERRO());
+        stmt.setString(9, cliente.getCLI_COBR_NUMERO());
         stmt.setString(10, cliente.getCLI_COBR_BAIRRO());
         stmt.setString(11, cliente.getCLI_COBR_CIDADE());
         stmt.setString(12, cliente.getCLI_COBR_CEP());
@@ -65,7 +64,7 @@ public class ClienteDAO {
         stmt.setDouble(4, cliente.getCLI_LIMITECRED());
         stmt.setString(5, cliente.getCLI_COBR_LOGRADOURO());
         stmt.setString(6, cliente.getCLI_COBR_ENDERECO());
-        stmt.setString(7, cliente.getCLI_COBR_NUMERRO());
+        stmt.setString(7, cliente.getCLI_COBR_NUMERO());
         stmt.setString(8, cliente.getCLI_COBR_BAIRRO());
         stmt.setString(9, cliente.getCLI_COBR_CIDADE());
         stmt.setString(10, cliente.getCLI_COBR_CEP());
@@ -118,25 +117,30 @@ public class ClienteDAO {
             enderecomodel.setEND_CEP(rs.getString("END_CEP"));
             enderecomodel.setEND_UF(rs.getString("END_UF"));
 
-            /*funcionariomodel.setEND_MODEL(enderecomodel);
+            clientemodel.setEND_MODEL(enderecomodel);
 
             contatomodel.setCON_CODIGO(rs.getInt("CON_CODIGO"));
             contatomodel.setCON_TELEFONE(rs.getString("CON_TELEFONE"));
             contatomodel.setCON_CELULAR(rs.getString("CON_CELULAR"));
             contatomodel.setCON_EMAIL(rs.getString("CON_EMAIL"));
 
-            funcionariomodel.setCON_MODEL(contatomodel);
+            clientemodel.setCON_MODEL(contatomodel);
 
-            funcionariomodel.setFUN_CODIGO(rs.getInt("FUN_CODIGO"));
-            funcionariomodel.setFUN_NOME(rs.getString("FUN_NOME"));
-            funcionariomodel.setFUN_CPF(rs.getString("FUN_CPF"));
-            funcionariomodel.setFUN_RG(rs.getString("FUN_RG"));
-            funcionariomodel.setFUN_CTPS(rs.getString("FUN_CTPS"));
-            funcionariomodel.setFUN_SALARIO(rs.getDouble("FUN_SALARIO"));
-            funcionariomodel.setFUN_DTADMISSAO(rs.getString("FUN_DTADMISSAO"));
-            funcionariomodel.setFUN_DTDEMISSAO(rs.getString("FUN_DTDEMISSAO"));
+            clientemodel.setCLI_CODIGO(rs.getInt("CLI_CODIGO"));
+            clientemodel.setCLI_NOME(rs.getString("CLI_NOME"));
+            clientemodel.setCLI_CNPJ(rs.getString("CLI_CNPJ"));
+            clientemodel.setCLI_INSCEST(rs.getString("CLI_INSCEST"));
+            clientemodel.setCLI_LIMITECRED(rs.getDouble("CLI_LIMITECRED"));
+            clientemodel.setCLI_FISICA(rs.getString("CLI_FISICA"));
+            clientemodel.setCLI_COBR_LOGRADOURO(rs.getString("CLI_COBR_LOGRADOURO"));
+            clientemodel.setCLI_COBR_ENDERECO(rs.getString("CLI_COBR_ENDERECO"));
+            clientemodel.setCLI_COBR_NUMERO(rs.getString("CLI_COBR_NUMERO"));
+            clientemodel.setCLI_COBR_BAIRRO(rs.getString("CLI_COBR_BAIRRO"));
+            clientemodel.setCLI_COBR_CIDADE(rs.getString("CLI_COBR_CIDADE"));
+            clientemodel.setCLI_COBR_CEP(rs.getString("CLI_COBR_CEP"));
+            clientemodel.setCLI_COBR_UF(rs.getString("CLI_COBR_UF"));
 
-            lista.add(funcionariomodel);*/
+            lista.add(clientemodel);
 
         }
 

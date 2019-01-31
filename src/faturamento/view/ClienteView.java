@@ -20,7 +20,7 @@ import javax.swing.BorderFactory;
 import javax.swing.JOptionPane;
 import javax.swing.border.Border;
 
-public class ClienteView extends javax.swing.JFrame {
+public class ClienteView extends IMenu {
 
     private String operacao;
 
@@ -140,13 +140,13 @@ public class ClienteView extends javax.swing.JFrame {
         lblCLI_COBR_NUMERO = new javax.swing.JLabel();
         edtCLI_COBR_NUMERO = new javax.swing.JTextField();
         lblCLI_COBR_CEP = new javax.swing.JLabel();
-        edtCLI_COBR_CEP = new javax.swing.JTextField();
         lblCLI_COBR_BAIRRO = new javax.swing.JLabel();
         edtCLI_COBR_BAIRRO = new javax.swing.JTextField();
         lblCLI_COBR_CIDADE = new javax.swing.JLabel();
         edtCLI_COBR_CIDADE = new javax.swing.JTextField();
         lblCLI_COBR_UF = new javax.swing.JLabel();
         cbxCLI_COBR_UF = new javax.swing.JComboBox<>();
+        edtCLI_COBR_CEP = new javax.swing.JTextField();
         btnALTERAR = new javax.swing.JButton();
         btnEXCLUIR = new javax.swing.JButton();
         btnLIMPAR = new javax.swing.JButton();
@@ -167,8 +167,6 @@ public class ClienteView extends javax.swing.JFrame {
 
         jTabbedPane.setTabLayoutPolicy(javax.swing.JTabbedPane.SCROLL_TAB_LAYOUT);
         jTabbedPane.setFocusable(false);
-
-        pnlDADOS.setBorder(null);
 
         lblCLI_CODIGO.setText("Código");
 
@@ -209,32 +207,34 @@ public class ClienteView extends javax.swing.JFrame {
             .addGroup(pnlDADOSLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnlDADOSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblCLI_NOME, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(edtCLI_NOME, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblCLI_LIMITECRED, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(pnlDADOSLayout.createSequentialGroup()
-                        .addGroup(pnlDADOSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(edtCLI_LIMITECRED)
-                            .addComponent(lblCLI_CNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(edtCLI_CNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(pnlDADOSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblCLI_INSCEST, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(edtCLI_INSCEST, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDADOSLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(edtEND_CODIGO, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(edtCON_CODIGO, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(pnlDADOSLayout.createSequentialGroup()
                         .addGroup(pnlDADOSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblCLI_CODIGO, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(edtCLI_CODIGO, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(pnlDADOSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cbxCLI_FISICA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblCLI_FISICA, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(390, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDADOSLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(edtEND_CODIGO, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(edtCON_CODIGO, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblCLI_NOME, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(edtCLI_NOME, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblCLI_LIMITECRED, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(pnlDADOSLayout.createSequentialGroup()
+                                .addGroup(pnlDADOSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblCLI_CNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(edtCLI_CNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(pnlDADOSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblCLI_INSCEST, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(edtCLI_INSCEST, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(pnlDADOSLayout.createSequentialGroup()
+                                .addGroup(pnlDADOSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblCLI_CODIGO, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(edtCLI_CODIGO, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(pnlDADOSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(cbxCLI_FISICA, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lblCLI_FISICA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(edtCLI_LIMITECRED, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 385, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         pnlDADOSLayout.setVerticalGroup(
@@ -246,34 +246,32 @@ public class ClienteView extends javax.swing.JFrame {
                     .addComponent(lblCLI_FISICA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlDADOSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(edtCLI_CODIGO, javax.swing.GroupLayout.PREFERRED_SIZE, 25, Short.MAX_VALUE)
-                    .addComponent(cbxCLI_FISICA, javax.swing.GroupLayout.PREFERRED_SIZE, 26, Short.MAX_VALUE))
+                    .addComponent(edtCLI_CODIGO, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbxCLI_FISICA, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblCLI_NOME, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(edtCLI_NOME, javax.swing.GroupLayout.PREFERRED_SIZE, 25, Short.MAX_VALUE)
+                .addComponent(edtCLI_NOME, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
                 .addGroup(pnlDADOSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCLI_CNPJ, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblCLI_INSCEST, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlDADOSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(edtCLI_CNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(edtCLI_INSCEST, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(edtCLI_CNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(edtCLI_INSCEST, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblCLI_LIMITECRED, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(edtCLI_LIMITECRED, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(edtCLI_LIMITECRED, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19)
                 .addGroup(pnlDADOSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(edtCON_CODIGO, javax.swing.GroupLayout.PREFERRED_SIZE, 25, Short.MAX_VALUE)
-                    .addComponent(edtEND_CODIGO, javax.swing.GroupLayout.PREFERRED_SIZE, 25, Short.MAX_VALUE))
+                    .addComponent(edtCON_CODIGO, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
+                    .addComponent(edtEND_CODIGO, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE))
                 .addGap(31, 31, 31))
         );
 
         jTabbedPane.addTab("Dados Pessoais", pnlDADOS);
-
-        pnlENDERECO.setBorder(null);
 
         lblEND_LOGRADOURO.setText("Logradouro");
 
@@ -292,11 +290,11 @@ public class ClienteView extends javax.swing.JFrame {
 
         edtEND_CEP.setToolTipText("Digite o CEP do endereço do funcionário");
         edtEND_CEP.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                edtEND_CEPKeyTyped(evt);
-            }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 edtEND_CEPKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                edtEND_CEPKeyTyped(evt);
             }
         });
 
@@ -323,18 +321,6 @@ public class ClienteView extends javax.swing.JFrame {
                     .addComponent(lblEND_LOGRADOURO)
                     .addComponent(cbxEND_LOGRADOURO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(pnlENDERECOLayout.createSequentialGroup()
-                        .addComponent(lblEND_BAIRRO)
-                        .addGap(151, 151, 151)
-                        .addComponent(lblEND_CIDADE)
-                        .addGap(145, 145, 145)
-                        .addComponent(lblEND_UF))
-                    .addGroup(pnlENDERECOLayout.createSequentialGroup()
-                        .addComponent(edtEND_BAIRRO, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(edtEND_CIDADE, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(cbxEND_UF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pnlENDERECOLayout.createSequentialGroup()
                         .addGroup(pnlENDERECOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(edtEND_ENDERECO, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblEND_ENDERECO))
@@ -345,17 +331,29 @@ public class ClienteView extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(pnlENDERECOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblEND_CEP)
-                            .addComponent(edtEND_CEP, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(125, Short.MAX_VALUE))
+                            .addComponent(edtEND_CEP, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(pnlENDERECOLayout.createSequentialGroup()
+                        .addGroup(pnlENDERECOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(edtEND_BAIRRO, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblEND_BAIRRO))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(pnlENDERECOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(edtEND_CIDADE, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblEND_CIDADE))
+                        .addGap(18, 18, 18)
+                        .addGroup(pnlENDERECOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblEND_UF)
+                            .addComponent(cbxEND_UF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(130, Short.MAX_VALUE))
         );
         pnlENDERECOLayout.setVerticalGroup(
             pnlENDERECOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlENDERECOLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblEND_LOGRADOURO, javax.swing.GroupLayout.DEFAULT_SIZE, 20, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cbxEND_LOGRADOURO)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
+                .addComponent(lblEND_LOGRADOURO, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(4, 4, 4)
+                .addComponent(cbxEND_LOGRADOURO, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(pnlENDERECOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlENDERECOLayout.createSequentialGroup()
                         .addGroup(pnlENDERECOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -363,39 +361,35 @@ public class ClienteView extends javax.swing.JFrame {
                             .addComponent(lblEND_CEP, javax.swing.GroupLayout.DEFAULT_SIZE, 18, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(pnlENDERECOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(edtEND_NUMERO, javax.swing.GroupLayout.PREFERRED_SIZE, 25, Short.MAX_VALUE)
-                            .addComponent(edtEND_CEP, javax.swing.GroupLayout.PREFERRED_SIZE, 25, Short.MAX_VALUE)))
+                            .addComponent(edtEND_NUMERO, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(edtEND_CEP, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(edtEND_ENDERECO, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(pnlENDERECOLayout.createSequentialGroup()
-                        .addComponent(lblEND_ENDERECO, javax.swing.GroupLayout.DEFAULT_SIZE, 19, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(edtEND_ENDERECO, javax.swing.GroupLayout.PREFERRED_SIZE, 25, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnlENDERECOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlENDERECOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lblEND_CIDADE, javax.swing.GroupLayout.DEFAULT_SIZE, 21, Short.MAX_VALUE)
-                        .addComponent(lblEND_UF, javax.swing.GroupLayout.DEFAULT_SIZE, 21, Short.MAX_VALUE))
-                    .addComponent(lblEND_BAIRRO, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE))
+                        .addComponent(lblEND_ENDERECO, javax.swing.GroupLayout.DEFAULT_SIZE, 23, Short.MAX_VALUE)
+                        .addGap(31, 31, 31)))
+                .addGroup(pnlENDERECOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblEND_BAIRRO, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
+                    .addComponent(lblEND_CIDADE, javax.swing.GroupLayout.DEFAULT_SIZE, 21, Short.MAX_VALUE)
+                    .addComponent(lblEND_UF, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlENDERECOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(edtEND_BAIRRO, javax.swing.GroupLayout.PREFERRED_SIZE, 26, Short.MAX_VALUE)
-                    .addComponent(edtEND_CIDADE, javax.swing.GroupLayout.PREFERRED_SIZE, 26, Short.MAX_VALUE)
-                    .addComponent(cbxEND_UF, javax.swing.GroupLayout.PREFERRED_SIZE, 26, Short.MAX_VALUE))
+                    .addComponent(edtEND_BAIRRO, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(edtEND_CIDADE, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbxEND_UF, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(106, 106, 106))
         );
 
         jTabbedPane.addTab("Endereço", pnlENDERECO);
 
-        pnlCONTATO.setBorder(null);
-
         lblCON_TELEFONE.setText("Telefone");
 
         edtCON_TELEFONE.setToolTipText("Digite o número do telefone fixo do funcionário");
         edtCON_TELEFONE.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                edtCON_TELEFONEKeyTyped(evt);
-            }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 edtCON_TELEFONEKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                edtCON_TELEFONEKeyTyped(evt);
             }
         });
 
@@ -403,11 +397,11 @@ public class ClienteView extends javax.swing.JFrame {
 
         edtCON_CELULAR.setToolTipText("Digite o número de celular do funcionário");
         edtCON_CELULAR.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                edtCON_CELULARKeyTyped(evt);
-            }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 edtCON_CELULARKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                edtCON_CELULARKeyTyped(evt);
             }
         });
 
@@ -422,17 +416,17 @@ public class ClienteView extends javax.swing.JFrame {
             .addGroup(pnlCONTATOLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnlCONTATOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(pnlCONTATOLayout.createSequentialGroup()
-                        .addComponent(lblCON_TELEFONE)
-                        .addGap(138, 138, 138)
-                        .addComponent(lblCON_CELULAR))
-                    .addGroup(pnlCONTATOLayout.createSequentialGroup()
-                        .addComponent(edtCON_TELEFONE, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(edtCON_CELULAR, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(lblCON_EMAIL)
-                    .addComponent(edtCON_EMAIL))
-                .addContainerGap(480, Short.MAX_VALUE))
+                    .addComponent(edtCON_EMAIL)
+                    .addGroup(pnlCONTATOLayout.createSequentialGroup()
+                        .addGroup(pnlCONTATOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(edtCON_TELEFONE, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblCON_TELEFONE))
+                        .addGap(18, 18, 18)
+                        .addGroup(pnlCONTATOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblCON_CELULAR)
+                            .addComponent(edtCON_CELULAR, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(485, Short.MAX_VALUE))
         );
         pnlCONTATOLayout.setVerticalGroup(
             pnlCONTATOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -443,18 +437,16 @@ public class ClienteView extends javax.swing.JFrame {
                     .addComponent(lblCON_CELULAR, javax.swing.GroupLayout.DEFAULT_SIZE, 19, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlCONTATOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(edtCON_TELEFONE, javax.swing.GroupLayout.PREFERRED_SIZE, 26, Short.MAX_VALUE)
-                    .addComponent(edtCON_CELULAR, javax.swing.GroupLayout.PREFERRED_SIZE, 26, Short.MAX_VALUE))
+                    .addComponent(edtCON_TELEFONE, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(edtCON_CELULAR, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblCON_EMAIL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblCON_EMAIL, javax.swing.GroupLayout.DEFAULT_SIZE, 21, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(edtCON_EMAIL, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
-                .addGap(169, 169, 169))
+                .addComponent(edtCON_EMAIL, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(186, 186, 186))
         );
 
         jTabbedPane.addTab("Contato", pnlCONTATO);
-
-        pnlENDERECO_COBRANCA.setBorder(null);
 
         lblCLI_COBR_LOGRADOURO.setText("Logradouro");
 
@@ -471,16 +463,6 @@ public class ClienteView extends javax.swing.JFrame {
 
         lblCLI_COBR_CEP.setText("CEP");
 
-        edtCLI_COBR_CEP.setToolTipText("Digite o CEP do endereço do funcionário");
-        edtCLI_COBR_CEP.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                edtCLI_COBR_CEPKeyTyped(evt);
-            }
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                edtCLI_COBR_CEPKeyReleased(evt);
-            }
-        });
-
         lblCLI_COBR_BAIRRO.setText("Bairro");
 
         edtCLI_COBR_BAIRRO.setToolTipText("Digite o bairro da residência do funcionário");
@@ -494,6 +476,16 @@ public class ClienteView extends javax.swing.JFrame {
         cbxCLI_COBR_UF.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecionar", "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" }));
         cbxCLI_COBR_UF.setFocusable(false);
 
+        edtCLI_COBR_CEP.setToolTipText("Digite o CEP do endereço do funcionário");
+        edtCLI_COBR_CEP.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                edtCLI_COBR_CEPKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                edtCLI_COBR_CEPKeyTyped(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnlENDERECO_COBRANCALayout = new javax.swing.GroupLayout(pnlENDERECO_COBRANCA);
         pnlENDERECO_COBRANCA.setLayout(pnlENDERECO_COBRANCALayout);
         pnlENDERECO_COBRANCALayout.setHorizontalGroup(
@@ -503,18 +495,6 @@ public class ClienteView extends javax.swing.JFrame {
                 .addGroup(pnlENDERECO_COBRANCALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblCLI_COBR_LOGRADOURO)
                     .addComponent(cbxCLI_COBR_LOGRADOURO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(pnlENDERECO_COBRANCALayout.createSequentialGroup()
-                        .addComponent(lblCLI_COBR_BAIRRO)
-                        .addGap(151, 151, 151)
-                        .addComponent(lblCLI_COBR_CIDADE)
-                        .addGap(145, 145, 145)
-                        .addComponent(lblCLI_COBR_UF))
-                    .addGroup(pnlENDERECO_COBRANCALayout.createSequentialGroup()
-                        .addComponent(edtCLI_COBR_BAIRRO, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(edtCLI_COBR_CIDADE, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(cbxCLI_COBR_UF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(pnlENDERECO_COBRANCALayout.createSequentialGroup()
                         .addGroup(pnlENDERECO_COBRANCALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblCLI_COBR_ENDERECO)
@@ -526,16 +506,28 @@ public class ClienteView extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(pnlENDERECO_COBRANCALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblCLI_COBR_CEP)
-                            .addComponent(edtCLI_COBR_CEP, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(edtCLI_COBR_CEP, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(pnlENDERECO_COBRANCALayout.createSequentialGroup()
+                        .addGroup(pnlENDERECO_COBRANCALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(edtCLI_COBR_BAIRRO, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblCLI_COBR_BAIRRO))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(pnlENDERECO_COBRANCALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblCLI_COBR_CIDADE)
+                            .addComponent(edtCLI_COBR_CIDADE, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(pnlENDERECO_COBRANCALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblCLI_COBR_UF)
+                            .addComponent(cbxCLI_COBR_UF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(123, Short.MAX_VALUE))
         );
         pnlENDERECO_COBRANCALayout.setVerticalGroup(
             pnlENDERECO_COBRANCALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlENDERECO_COBRANCALayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblCLI_COBR_LOGRADOURO, javax.swing.GroupLayout.DEFAULT_SIZE, 19, Short.MAX_VALUE)
+                .addComponent(lblCLI_COBR_LOGRADOURO, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cbxCLI_COBR_LOGRADOURO, javax.swing.GroupLayout.PREFERRED_SIZE, 26, Short.MAX_VALUE)
+                .addComponent(cbxCLI_COBR_LOGRADOURO, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnlENDERECO_COBRANCALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlENDERECO_COBRANCALayout.createSequentialGroup()
@@ -544,45 +536,38 @@ public class ClienteView extends javax.swing.JFrame {
                             .addComponent(lblCLI_COBR_CEP, javax.swing.GroupLayout.DEFAULT_SIZE, 18, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(pnlENDERECO_COBRANCALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(edtCLI_COBR_NUMERO, javax.swing.GroupLayout.PREFERRED_SIZE, 25, Short.MAX_VALUE)
-                            .addComponent(edtCLI_COBR_CEP, javax.swing.GroupLayout.PREFERRED_SIZE, 25, Short.MAX_VALUE)
-                            .addComponent(edtCLI_COBR_ENDERECO, javax.swing.GroupLayout.PREFERRED_SIZE, 25, Short.MAX_VALUE)))
+                            .addComponent(edtCLI_COBR_NUMERO, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(edtCLI_COBR_ENDERECO, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(edtCLI_COBR_CEP, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(pnlENDERECO_COBRANCALayout.createSequentialGroup()
-                        .addComponent(lblCLI_COBR_ENDERECO, javax.swing.GroupLayout.DEFAULT_SIZE, 18, Short.MAX_VALUE)
+                        .addComponent(lblCLI_COBR_ENDERECO, javax.swing.GroupLayout.DEFAULT_SIZE, 21, Short.MAX_VALUE)
                         .addGap(31, 31, 31)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlENDERECO_COBRANCALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlENDERECO_COBRANCALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lblCLI_COBR_CIDADE, javax.swing.GroupLayout.DEFAULT_SIZE, 21, Short.MAX_VALUE)
-                        .addComponent(lblCLI_COBR_UF, javax.swing.GroupLayout.DEFAULT_SIZE, 21, Short.MAX_VALUE))
-                    .addComponent(lblCLI_COBR_BAIRRO, javax.swing.GroupLayout.DEFAULT_SIZE, 21, Short.MAX_VALUE))
+                        .addComponent(lblCLI_COBR_CIDADE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblCLI_COBR_UF, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblCLI_COBR_BAIRRO, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlENDERECO_COBRANCALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(edtCLI_COBR_BAIRRO, javax.swing.GroupLayout.PREFERRED_SIZE, 26, Short.MAX_VALUE)
-                    .addComponent(edtCLI_COBR_CIDADE, javax.swing.GroupLayout.PREFERRED_SIZE, 26, Short.MAX_VALUE)
-                    .addComponent(cbxCLI_COBR_UF, javax.swing.GroupLayout.PREFERRED_SIZE, 26, Short.MAX_VALUE))
-                .addGap(106, 106, 106))
+                    .addComponent(edtCLI_COBR_BAIRRO, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(edtCLI_COBR_CIDADE, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbxCLI_COBR_UF, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(95, 95, 95))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 872, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(pnlENDERECO_COBRANCA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(pnlENDERECO_COBRANCA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 7, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 293, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(pnlENDERECO_COBRANCA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(pnlENDERECO_COBRANCA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 19, Short.MAX_VALUE))
         );
 
         jTabbedPane.addTab("Endereço de Cobrança", jPanel1);
@@ -689,7 +674,7 @@ public class ClienteView extends javax.swing.JFrame {
 
                     clientemodel.setCLI_COBR_LOGRADOURO(cbxCLI_COBR_LOGRADOURO.getSelectedItem().toString());
                     clientemodel.setCLI_COBR_ENDERECO(edtCLI_COBR_ENDERECO.getText());
-                    clientemodel.setCLI_COBR_NUMERRO(edtCLI_COBR_NUMERO.getText());
+                    clientemodel.setCLI_COBR_NUMERO(edtCLI_COBR_NUMERO.getText());
                     clientemodel.setCLI_COBR_CEP(edtCLI_COBR_CEP.getText());
                     clientemodel.setCLI_COBR_BAIRRO(edtCLI_COBR_BAIRRO.getText());
                     clientemodel.setCLI_COBR_CIDADE(edtCLI_COBR_CIDADE.getText());
@@ -760,10 +745,9 @@ public class ClienteView extends javax.swing.JFrame {
     }//GEN-LAST:event_edtCON_CELULARKeyTyped
 
     private void btnPESQUISAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPESQUISAActionPerformed
-        this.ativarCampos();
-        this.limpar();
-
-        setOperacao("incluir");
+        this.dispose();
+        PesquisaClienteView pesquisa = new PesquisaClienteView(this, true);
+        pesquisa.setVisible(true);
     }//GEN-LAST:event_btnPESQUISAActionPerformed
 
     private void btnNOVOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNOVOActionPerformed
@@ -774,17 +758,17 @@ public class ClienteView extends javax.swing.JFrame {
     }//GEN-LAST:event_btnNOVOActionPerformed
 
     private void edtCLI_COBR_CEPKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_edtCLI_COBR_CEPKeyReleased
-        String campo = edtEND_CEP.getText();
+        String campo = edtCLI_COBR_CEP.getText();
         if (campo.length() == 8) {
             String cep;
             cep = String.valueOf("" + campo.charAt(0) + campo.charAt(1) + campo.charAt(2) + campo.charAt(3) + campo.charAt(4) + "-" + campo.charAt(5) + campo.charAt(6) + campo.charAt(7));
-            edtEND_CEP.setText(cep);
+            edtCLI_COBR_CEP.setText(cep);
         }
     }//GEN-LAST:event_edtCLI_COBR_CEPKeyReleased
 
     private void edtCLI_COBR_CEPKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_edtCLI_COBR_CEPKeyTyped
         int quantidade = 8;
-        if (edtEND_CEP.getText().length() >= quantidade) {
+        if (edtCLI_COBR_CEP.getText().length() >= quantidade) {
             evt.consume();
         }
     }//GEN-LAST:event_edtCLI_COBR_CEPKeyTyped
@@ -836,7 +820,7 @@ public class ClienteView extends javax.swing.JFrame {
             Border border = BorderFactory.createLineBorder(Color.LIGHT_GRAY, (int) 1);
             edtCLI_NOME.setBorder(border);
         }
- 
+
         if (edtCLI_CNPJ.getText().length() < 11 || edtCLI_CNPJ.getText().length() < 14 || edtCLI_CNPJ.getText() == null) {
 
             Border border = BorderFactory.createLineBorder(Color.RED, (int) 1.5);
@@ -895,6 +879,12 @@ public class ClienteView extends javax.swing.JFrame {
         edtCLI_INSCEST.setEnabled(true);
         edtCLI_LIMITECRED.setEnabled(true);
 
+        edtCLI_COBR_ENDERECO.setEnabled(true);
+        edtCLI_COBR_BAIRRO.setEnabled(true);
+        edtCLI_COBR_CEP.setEnabled(true);
+        edtCLI_COBR_CIDADE.setEnabled(true);
+        edtCLI_COBR_NUMERO.setEnabled(true);
+
         edtEND_BAIRRO.setEnabled(true);
         edtEND_CEP.setEnabled(true);
         edtEND_CIDADE.setEnabled(true);
@@ -906,15 +896,28 @@ public class ClienteView extends javax.swing.JFrame {
         edtCON_TELEFONE.setEnabled(true);
 
         btnSALVAR.setEnabled(true);
+        btnALTERAR.setEnabled(true);
+        btnEXCLUIR.setEnabled(true);
+
+        cbxCLI_COBR_LOGRADOURO.setEnabled(true);
+        cbxCLI_COBR_UF.setEnabled(true);
+        cbxCLI_FISICA.setEnabled(true);
+        cbxEND_UF.setEnabled(true);
+        cbxEND_LOGRADOURO.setEnabled(true);
     }
 
     public void inativarCampos() {
 
         edtCLI_CNPJ.setEnabled(false);
-
         edtCLI_NOME.setEnabled(false);
         edtCLI_INSCEST.setEnabled(false);
         edtCLI_LIMITECRED.setEnabled(false);
+
+        edtCLI_COBR_ENDERECO.setEnabled(false);
+        edtCLI_COBR_BAIRRO.setEnabled(false);
+        edtCLI_COBR_CEP.setEnabled(false);
+        edtCLI_COBR_CIDADE.setEnabled(false);
+        edtCLI_COBR_NUMERO.setEnabled(false);
 
         edtEND_BAIRRO.setEnabled(false);
         edtEND_CEP.setEnabled(false);
@@ -927,6 +930,55 @@ public class ClienteView extends javax.swing.JFrame {
         edtCON_TELEFONE.setEnabled(false);
 
         btnSALVAR.setEnabled(false);
+        btnALTERAR.setEnabled(false);
+        btnEXCLUIR.setEnabled(false);
+
+        cbxCLI_COBR_LOGRADOURO.setEnabled(false);
+        cbxCLI_COBR_UF.setEnabled(false);
+        cbxCLI_FISICA.setEnabled(false);
+        cbxEND_UF.setEnabled(false);
+        cbxEND_LOGRADOURO.setEnabled(false);
+
+    }
+
+    public void ativarBotoes() {
+
+        btnALTERAR.setEnabled(true);
+        btnEXCLUIR.setEnabled(true);
+
+        btnNOVO.setEnabled(false);
+    }
+
+    public void mostrar(ClienteModel cliente) {
+
+        edtCON_CODIGO.setText(String.valueOf(cliente.getCLI_CODIGO()));
+        cbxCLI_FISICA.setSelectedItem(cliente.getCLI_FISICA());
+        edtCLI_NOME.setText(cliente.getCLI_NOME());
+        edtCLI_CNPJ.setText(cliente.getCLI_CNPJ());
+        edtCLI_INSCEST.setText(cliente.getCLI_INSCEST());
+        edtCLI_LIMITECRED.setText(String.valueOf(cliente.getCLI_LIMITECRED()));
+
+        edtEND_CODIGO.setText(String.valueOf(cliente.getEND_MODEL().getEND_CODIGO()));
+        cbxEND_LOGRADOURO.setSelectedItem(cliente.getEND_MODEL().getEND_LOGRADOURO());
+        edtEND_ENDERECO.setText(String.valueOf(cliente.getEND_MODEL().getEND_ENDERECO()));
+        edtEND_NUMERO.setText(String.valueOf(cliente.getEND_MODEL().getEND_NUMERO()));
+        edtEND_BAIRRO.setText(String.valueOf(cliente.getEND_MODEL().getEND_BAIRRO()));
+        edtEND_CIDADE.setText(String.valueOf(cliente.getEND_MODEL().getEND_CIDADE()));
+        edtEND_CEP.setText(String.valueOf(cliente.getEND_MODEL().getEND_CEP()));
+        cbxEND_UF.setSelectedItem(cliente.getEND_MODEL().getEND_UF());
+
+        edtCON_CODIGO.setText(String.valueOf(cliente.getCON_MODEL().getCON_CODIGO()));
+        edtCON_CELULAR.setText(cliente.getCON_MODEL().getCON_CELULAR());
+        edtCON_TELEFONE.setText(cliente.getCON_MODEL().getCON_TELEFONE());
+        edtCON_EMAIL.setText(cliente.getCON_MODEL().getCON_EMAIL());
+
+        cbxCLI_COBR_LOGRADOURO.setSelectedItem(cliente.getCLI_COBR_LOGRADOURO());
+        edtCLI_COBR_ENDERECO.setText(String.valueOf(cliente.getCLI_COBR_ENDERECO()));
+        edtCLI_COBR_NUMERO.setText(String.valueOf(cliente.getCLI_COBR_NUMERO()));
+        edtCLI_COBR_BAIRRO.setText(String.valueOf(cliente.getCLI_COBR_BAIRRO()));
+        edtCLI_COBR_CIDADE.setText(String.valueOf(cliente.getCLI_COBR_CIDADE()));
+        edtCLI_COBR_CEP.setText(String.valueOf(cliente.getCLI_COBR_CEP()));
+        cbxCLI_COBR_UF.setSelectedItem(cliente.getCLI_COBR_UF());
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

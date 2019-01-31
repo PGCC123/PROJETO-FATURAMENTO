@@ -60,11 +60,6 @@
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
       <SubComponents>
         <Container class="javax.swing.JPanel" name="pnlDADOS">
-          <Properties>
-            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="null"/>
-            </Property>
-          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
               <JTabbedPaneConstraints tabName="Dados Pessoais">
@@ -79,40 +74,44 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lblCLI_NOME" alignment="0" min="-2" pref="59" max="-2" attributes="0"/>
-                          <Component id="edtCLI_NOME" alignment="0" min="-2" pref="470" max="-2" attributes="0"/>
-                          <Component id="lblCLI_LIMITECRED" alignment="0" min="-2" pref="131" max="-2" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="edtCLI_LIMITECRED" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="lblCLI_CNPJ" alignment="0" min="-2" pref="91" max="-2" attributes="0"/>
-                                  <Component id="edtCLI_CNPJ" alignment="0" min="-2" pref="164" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lblCLI_INSCEST" min="-2" pref="88" max="-2" attributes="0"/>
-                                  <Component id="edtCLI_INSCEST" min="-2" pref="164" max="-2" attributes="0"/>
-                              </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <Component id="edtEND_CODIGO" min="-2" pref="96" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="edtCON_CODIGO" min="-2" pref="96" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
+                          <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lblCLI_CODIGO" alignment="0" min="-2" pref="59" max="-2" attributes="0"/>
-                                  <Component id="edtCLI_CODIGO" alignment="0" min="-2" pref="96" max="-2" attributes="0"/>
+                                  <Component id="lblCLI_NOME" alignment="0" min="-2" pref="59" max="-2" attributes="0"/>
+                                  <Component id="edtCLI_NOME" alignment="0" min="-2" pref="470" max="-2" attributes="0"/>
+                                  <Component id="lblCLI_LIMITECRED" alignment="0" min="-2" pref="131" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="lblCLI_CNPJ" alignment="0" min="-2" pref="91" max="-2" attributes="0"/>
+                                          <Component id="edtCLI_CNPJ" alignment="0" min="-2" pref="164" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="lblCLI_INSCEST" min="-2" pref="88" max="-2" attributes="0"/>
+                                          <Component id="edtCLI_INSCEST" min="-2" pref="164" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="lblCLI_CODIGO" alignment="0" min="-2" pref="59" max="-2" attributes="0"/>
+                                          <Component id="edtCLI_CODIGO" alignment="0" min="-2" pref="96" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="cbxCLI_FISICA" max="32767" attributes="0"/>
+                                          <Component id="lblCLI_FISICA" max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Component id="edtCLI_LIMITECRED" alignment="0" min="-2" pref="164" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="cbxCLI_FISICA" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblCLI_FISICA" min="-2" pref="105" max="-2" attributes="0"/>
-                              </Group>
+                              <EmptySpace min="0" pref="385" max="32767" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="390" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="edtEND_CODIGO" min="-2" pref="96" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="edtCON_CODIGO" min="-2" pref="96" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -127,13 +126,13 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="edtCLI_CODIGO" alignment="3" pref="25" max="32767" attributes="0"/>
-                          <Component id="cbxCLI_FISICA" alignment="3" pref="26" max="32767" attributes="0"/>
+                          <Component id="edtCLI_CODIGO" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="cbxCLI_FISICA" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="lblCLI_NOME" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="edtCLI_NOME" pref="25" max="32767" attributes="0"/>
+                      <Component id="edtCLI_NOME" min="-2" pref="25" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="lblCLI_CNPJ" alignment="3" max="32767" attributes="0"/>
@@ -141,14 +140,14 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="edtCLI_CNPJ" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
-                          <Component id="edtCLI_INSCEST" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                          <Component id="edtCLI_CNPJ" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="edtCLI_INSCEST" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="lblCLI_LIMITECRED" min="-2" pref="25" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="edtCLI_LIMITECRED" min="-2" pref="27" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="edtCLI_LIMITECRED" min="-2" pref="25" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="edtCON_CODIGO" alignment="3" pref="25" max="32767" attributes="0"/>
                           <Component id="edtEND_CODIGO" alignment="3" pref="25" max="32767" attributes="0"/>
@@ -249,11 +248,6 @@
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="pnlENDERECO">
-          <Properties>
-            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="null"/>
-            </Property>
-          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
               <JTabbedPaneConstraints tabName="Endere&#xe7;o">
@@ -270,20 +264,6 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="lblEND_LOGRADOURO" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="cbxEND_LOGRADOURO" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="lblEND_BAIRRO" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="151" max="-2" attributes="0"/>
-                              <Component id="lblEND_CIDADE" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="145" max="-2" attributes="0"/>
-                              <Component id="lblEND_UF" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="edtEND_BAIRRO" min="-2" pref="181" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="edtEND_CIDADE" min="-2" pref="181" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="cbxEND_UF" min="-2" max="-2" attributes="0"/>
-                          </Group>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="edtEND_ENDERECO" alignment="0" min="-2" pref="470" max="-2" attributes="0"/>
@@ -300,19 +280,35 @@
                                   <Component id="edtEND_CEP" min="-2" pref="149" max="-2" attributes="0"/>
                               </Group>
                           </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="edtEND_BAIRRO" alignment="0" min="-2" pref="181" max="-2" attributes="0"/>
+                                  <Component id="lblEND_BAIRRO" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="edtEND_CIDADE" alignment="0" min="-2" pref="181" max="-2" attributes="0"/>
+                                  <Component id="lblEND_CIDADE" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lblEND_UF" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cbxEND_UF" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
-                      <EmptySpace pref="125" max="32767" attributes="0"/>
+                      <EmptySpace pref="130" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="lblEND_LOGRADOURO" pref="20" max="32767" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="cbxEND_LOGRADOURO" max="32767" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                      <Component id="lblEND_LOGRADOURO" min="-2" pref="17" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                      <Component id="cbxEND_LOGRADOURO" min="-2" pref="25" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -321,29 +317,26 @@
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="edtEND_NUMERO" alignment="3" pref="25" max="32767" attributes="0"/>
-                                  <Component id="edtEND_CEP" alignment="3" pref="25" max="32767" attributes="0"/>
+                                  <Component id="edtEND_NUMERO" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                                  <Component id="edtEND_CEP" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                                  <Component id="edtEND_ENDERECO" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" attributes="0">
-                              <Component id="lblEND_ENDERECO" pref="19" max="32767" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="edtEND_ENDERECO" pref="25" max="32767" attributes="0"/>
+                              <Component id="lblEND_ENDERECO" pref="23" max="32767" attributes="0"/>
+                              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="lblEND_CIDADE" alignment="3" pref="21" max="32767" attributes="0"/>
-                              <Component id="lblEND_UF" alignment="3" pref="21" max="32767" attributes="0"/>
-                          </Group>
-                          <Component id="lblEND_BAIRRO" alignment="0" pref="22" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblEND_BAIRRO" alignment="3" pref="29" max="32767" attributes="0"/>
+                          <Component id="lblEND_CIDADE" alignment="3" pref="21" max="32767" attributes="0"/>
+                          <Component id="lblEND_UF" alignment="3" min="-2" pref="21" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="edtEND_BAIRRO" alignment="3" pref="26" max="32767" attributes="0"/>
-                          <Component id="edtEND_CIDADE" alignment="3" pref="26" max="32767" attributes="0"/>
-                          <Component id="cbxEND_UF" alignment="3" pref="26" max="32767" attributes="0"/>
+                          <Component id="edtEND_BAIRRO" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="edtEND_CIDADE" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="cbxEND_UF" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="106" max="-2" attributes="0"/>
                   </Group>
@@ -405,8 +398,8 @@
                 <Property name="toolTipText" type="java.lang.String" value="Digite o CEP do endere&#xe7;o do funcion&#xe1;rio"/>
               </Properties>
               <Events>
-                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="edtEND_CEPKeyTyped"/>
                 <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="edtEND_CEPKeyReleased"/>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="edtEND_CEPKeyTyped"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="lblEND_BAIRRO">
@@ -477,11 +470,6 @@
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="pnlCONTATO">
-          <Properties>
-            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="null"/>
-            </Property>
-          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
               <JTabbedPaneConstraints tabName="Contato">
@@ -496,20 +484,21 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="lblCON_TELEFONE" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="138" max="-2" attributes="0"/>
-                              <Component id="lblCON_CELULAR" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="edtCON_TELEFONE" min="-2" pref="181" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="edtCON_CELULAR" min="-2" pref="181" max="-2" attributes="0"/>
-                          </Group>
                           <Component id="lblCON_EMAIL" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="edtCON_EMAIL" alignment="0" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="edtCON_TELEFONE" alignment="0" min="-2" pref="181" max="-2" attributes="0"/>
+                                  <Component id="lblCON_TELEFONE" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lblCON_CELULAR" min="-2" max="-2" attributes="0"/>
+                                  <Component id="edtCON_CELULAR" min="-2" pref="181" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
-                      <EmptySpace pref="480" max="32767" attributes="0"/>
+                      <EmptySpace pref="485" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -523,14 +512,14 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="edtCON_TELEFONE" alignment="3" pref="26" max="32767" attributes="0"/>
-                          <Component id="edtCON_CELULAR" alignment="3" pref="26" max="32767" attributes="0"/>
+                          <Component id="edtCON_TELEFONE" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="edtCON_CELULAR" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                       </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="lblCON_EMAIL" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="lblCON_EMAIL" pref="21" max="32767" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="edtCON_EMAIL" pref="28" max="32767" attributes="0"/>
-                      <EmptySpace min="-2" pref="169" max="-2" attributes="0"/>
+                      <Component id="edtCON_EMAIL" min="-2" pref="25" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="186" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -546,8 +535,8 @@
                 <Property name="toolTipText" type="java.lang.String" value="Digite o n&#xfa;mero do telefone fixo do funcion&#xe1;rio"/>
               </Properties>
               <Events>
-                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="edtCON_TELEFONEKeyTyped"/>
                 <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="edtCON_TELEFONEKeyReleased"/>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="edtCON_TELEFONEKeyTyped"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="lblCON_CELULAR">
@@ -560,8 +549,8 @@
                 <Property name="toolTipText" type="java.lang.String" value="Digite o n&#xfa;mero de celular do funcion&#xe1;rio"/>
               </Properties>
               <Events>
-                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="edtCON_CELULARKeyTyped"/>
                 <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="edtCON_CELULARKeyReleased"/>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="edtCON_CELULARKeyTyped"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="lblCON_EMAIL">
@@ -588,36 +577,23 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="872" max="32767" attributes="0"/>
-                  <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          <Component id="pnlENDERECO_COBRANCA" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="pnlENDERECO_COBRANCA" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="7" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="293" max="32767" attributes="0"/>
-                  <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          <Component id="pnlENDERECO_COBRANCA" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="pnlENDERECO_COBRANCA" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="19" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
             <Container class="javax.swing.JPanel" name="pnlENDERECO_COBRANCA">
-              <Properties>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="null"/>
-                </Property>
-              </Properties>
 
               <Layout>
                 <DimensionLayout dim="0">
@@ -627,20 +603,6 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="lblCLI_COBR_LOGRADOURO" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="cbxCLI_COBR_LOGRADOURO" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="lblCLI_COBR_BAIRRO" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="151" max="-2" attributes="0"/>
-                                  <Component id="lblCLI_COBR_CIDADE" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="145" max="-2" attributes="0"/>
-                                  <Component id="lblCLI_COBR_UF" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="edtCLI_COBR_BAIRRO" min="-2" pref="181" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="edtCLI_COBR_CIDADE" min="-2" pref="181" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="cbxCLI_COBR_UF" min="-2" max="-2" attributes="0"/>
-                              </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="lblCLI_COBR_ENDERECO" min="-2" max="-2" attributes="0"/>
@@ -653,8 +615,24 @@
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="lblCLI_COBR_CEP" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="edtCLI_COBR_CEP" alignment="0" min="-2" pref="149" max="-2" attributes="0"/>
+                                      <Component id="lblCLI_COBR_CEP" min="-2" max="-2" attributes="0"/>
+                                      <Component id="edtCLI_COBR_CEP" min="-2" pref="149" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="edtCLI_COBR_BAIRRO" alignment="0" min="-2" pref="181" max="-2" attributes="0"/>
+                                      <Component id="lblCLI_COBR_BAIRRO" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="lblCLI_COBR_CIDADE" min="-2" max="-2" attributes="0"/>
+                                      <Component id="edtCLI_COBR_CIDADE" min="-2" pref="181" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="lblCLI_COBR_UF" min="-2" max="-2" attributes="0"/>
+                                      <Component id="cbxCLI_COBR_UF" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -666,9 +644,9 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="lblCLI_COBR_LOGRADOURO" pref="19" max="32767" attributes="0"/>
+                          <Component id="lblCLI_COBR_LOGRADOURO" pref="26" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="cbxCLI_COBR_LOGRADOURO" pref="26" max="32767" attributes="0"/>
+                          <Component id="cbxCLI_COBR_LOGRADOURO" min="-2" pref="25" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
@@ -678,31 +656,30 @@
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="edtCLI_COBR_NUMERO" alignment="3" pref="25" max="32767" attributes="0"/>
-                                      <Component id="edtCLI_COBR_CEP" alignment="3" pref="25" max="32767" attributes="0"/>
-                                      <Component id="edtCLI_COBR_ENDERECO" alignment="3" pref="25" max="32767" attributes="0"/>
+                                      <Component id="edtCLI_COBR_NUMERO" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                                      <Component id="edtCLI_COBR_ENDERECO" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                                      <Component id="edtCLI_COBR_CEP" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="lblCLI_COBR_ENDERECO" pref="18" max="32767" attributes="0"/>
+                                  <Component id="lblCLI_COBR_ENDERECO" pref="21" max="32767" attributes="0"/>
                                   <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                  <Component id="lblCLI_COBR_CIDADE" alignment="3" pref="21" max="32767" attributes="0"/>
-                                  <Component id="lblCLI_COBR_UF" alignment="3" pref="21" max="32767" attributes="0"/>
+                                  <Component id="lblCLI_COBR_CIDADE" alignment="3" max="32767" attributes="0"/>
+                                  <Component id="lblCLI_COBR_UF" alignment="3" min="-2" pref="21" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="lblCLI_COBR_BAIRRO" alignment="0" pref="21" max="32767" attributes="0"/>
+                              <Component id="lblCLI_COBR_BAIRRO" alignment="0" pref="28" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="edtCLI_COBR_BAIRRO" alignment="3" pref="26" max="32767" attributes="0"/>
-                              <Component id="edtCLI_COBR_CIDADE" alignment="3" pref="26" max="32767" attributes="0"/>
-                              <Component id="cbxCLI_COBR_UF" alignment="3" pref="26" max="32767" attributes="0"/>
+                              <Component id="edtCLI_COBR_BAIRRO" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                              <Component id="edtCLI_COBR_CIDADE" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                              <Component id="cbxCLI_COBR_UF" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="106" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -756,15 +733,6 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="CEP"/>
                   </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="edtCLI_COBR_CEP">
-                  <Properties>
-                    <Property name="toolTipText" type="java.lang.String" value="Digite o CEP do endere&#xe7;o do funcion&#xe1;rio"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="edtCLI_COBR_CEPKeyTyped"/>
-                    <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="edtCLI_COBR_CEPKeyReleased"/>
-                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblCLI_COBR_BAIRRO">
                   <Properties>
@@ -830,6 +798,15 @@
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
+                </Component>
+                <Component class="javax.swing.JTextField" name="edtCLI_COBR_CEP">
+                  <Properties>
+                    <Property name="toolTipText" type="java.lang.String" value="Digite o CEP do endere&#xe7;o do funcion&#xe1;rio"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="edtCLI_COBR_CEPKeyReleased"/>
+                    <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="edtCLI_COBR_CEPKeyTyped"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>

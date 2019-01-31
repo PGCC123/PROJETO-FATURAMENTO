@@ -11,7 +11,7 @@ public class ClienteModel {
     
     private String CLI_COBR_LOGRADOURO;
     private String CLI_COBR_ENDERECO;
-    private String CLI_COBR_NUMERRO;
+    private String CLI_COBR_NUMERO;
     private String CLI_COBR_BAIRRO;
     private String CLI_COBR_CIDADE;
     private String CLI_COBR_CEP;
@@ -24,7 +24,7 @@ public class ClienteModel {
     
     }
 
-    public ClienteModel(int CLI_CODIGO, String CLI_NOME, String CLI_CNPJ, String CLI_INSCEST, double CLI_LIMITECRED, String CLI_FISICA, String CLI_COBR_LOGRADOURO, String CLI_COBR_ENDERECO, String CLI_COBR_NUMERRO, String CLI_COBR_BAIRRO, String CLI_COBR_CIDADE, String CLI_COBR_CEP, String CLI_COBR_UF, EnderecoModel END_MODEL, ContatoModel CON_MODEL) {
+    public ClienteModel(int CLI_CODIGO, String CLI_NOME, String CLI_CNPJ, String CLI_INSCEST, double CLI_LIMITECRED, String CLI_FISICA, String CLI_COBR_LOGRADOURO, String CLI_COBR_ENDERECO, String CLI_COBR_NUMERO, String CLI_COBR_BAIRRO, String CLI_COBR_CIDADE, String CLI_COBR_CEP, String CLI_COBR_UF, EnderecoModel END_MODEL, ContatoModel CON_MODEL) {
         this.CLI_CODIGO = CLI_CODIGO;
         this.CLI_NOME = CLI_NOME;
         this.CLI_CNPJ = CLI_CNPJ;
@@ -33,7 +33,7 @@ public class ClienteModel {
         this.CLI_FISICA = CLI_FISICA;
         this.CLI_COBR_LOGRADOURO = CLI_COBR_LOGRADOURO;
         this.CLI_COBR_ENDERECO = CLI_COBR_ENDERECO;
-        this.CLI_COBR_NUMERRO = CLI_COBR_NUMERRO;
+        this.CLI_COBR_NUMERO = CLI_COBR_NUMERO;
         this.CLI_COBR_BAIRRO = CLI_COBR_BAIRRO;
         this.CLI_COBR_CIDADE = CLI_COBR_CIDADE;
         this.CLI_COBR_CEP = CLI_COBR_CEP;
@@ -106,12 +106,12 @@ public class ClienteModel {
         this.CLI_COBR_ENDERECO = CLI_COBR_ENDERECO;
     }
 
-    public String getCLI_COBR_NUMERRO() {
-        return CLI_COBR_NUMERRO;
+    public String getCLI_COBR_NUMERO() {
+        return CLI_COBR_NUMERO;
     }
 
-    public void setCLI_COBR_NUMERRO(String CLI_COBR_NUMERRO) {
-        this.CLI_COBR_NUMERRO = CLI_COBR_NUMERRO;
+    public void setCLI_COBR_NUMERO(String CLI_COBR_NUMERRO) {
+        this.CLI_COBR_NUMERO = CLI_COBR_NUMERRO;
     }
 
     public String getCLI_COBR_BAIRRO() {

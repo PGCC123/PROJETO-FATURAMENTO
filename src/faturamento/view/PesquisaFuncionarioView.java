@@ -28,9 +28,7 @@ public class PesquisaFuncionarioView extends javax.swing.JDialog {
 
         this.consultar();
 
-        tblFUNCIONARIO.getColumnModel().getColumn(0).setPreferredWidth(30); // configuração de largura da coluna (codigo)
-        tblFUNCIONARIO.getColumnModel().getColumn(1).setPreferredWidth(175);// configuração de largura da coluna (nome)
-
+        this.tamanhoColunas();
     }
 
     @SuppressWarnings("unchecked")
@@ -179,12 +177,12 @@ public class PesquisaFuncionarioView extends javax.swing.JDialog {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnLIMPAR)
                             .addComponent(btnCONSULTA, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(11, 11, 11)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(71, 71, 71))
         );
 
-        setSize(new java.awt.Dimension(770, 473));
+        setSize(new java.awt.Dimension(770, 458));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -206,11 +204,21 @@ public class PesquisaFuncionarioView extends javax.swing.JDialog {
 
     private void btnCONSULTAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCONSULTAActionPerformed
         this.consultar();
+        this.tamanhoColunas();
     }//GEN-LAST:event_btnCONSULTAActionPerformed
 
     private void btnLIMPARMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLIMPARMouseClicked
         this.limpar();
+        this.tamanhoColunas();
     }//GEN-LAST:event_btnLIMPARMouseClicked
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+
+        FuncionarioView funcionarioview = new FuncionarioView();
+        funcionarioview.setVisible(true);
+        this.dispose();
+
+    }//GEN-LAST:event_formWindowClosing
 
     private void tblFUNCIONARIOMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblFUNCIONARIOMouseClicked
         if (evt.getClickCount() == 2) {
@@ -225,14 +233,6 @@ public class PesquisaFuncionarioView extends javax.swing.JDialog {
             funcionario.mostrar(listafuncionario.get(selecionada));
         }
     }//GEN-LAST:event_tblFUNCIONARIOMouseClicked
-
-    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-
-        FuncionarioView funcionarioview = new FuncionarioView();
-        funcionarioview.setVisible(true);
-        this.dispose();
-        
-    }//GEN-LAST:event_formWindowClosing
 
     private String filtroConsulta() {
 
@@ -297,6 +297,12 @@ public class PesquisaFuncionarioView extends javax.swing.JDialog {
         edtCONS_CPF.setText("");
         edtCONS_NOME.setText("");
 
+    }
+    
+    public void tamanhoColunas() {
+        
+        tblFUNCIONARIO.getColumnModel().getColumn(0).setPreferredWidth(30); // configuração de largura da coluna (codigo)
+        tblFUNCIONARIO.getColumnModel().getColumn(1).setPreferredWidth(175);// configuração de largura da coluna (nome)
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
